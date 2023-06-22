@@ -1,16 +1,16 @@
-<h1 align="center"> Linguagens de Programação 1 / Progamming Languages 1 <h1>
+<h1 align="center"> Linguagens de Programação 1 <h1>
+<h1 align="center"> Progamming Languages 1 <h1>
 <h3 align="center"> Discord Clone - Concordo <h3>
 
 
 ## Projeto / Project
-- #### O *projeto* consiste na criação de um clone do Discord utilizando o terminal sem interface gráfica e sem acesso de rede.
+- #### O *projeto* consiste na criação de um clone do Discord utilizando o terminal, sem interface gráfica e sem acesso de rede.
 - #### The *project* consists of creating a clone of Discord using the terminal without a graphical interface and without network access.
 
 
 ## 🛠 Technologies
 - [C++](https://learn.microsoft.com/pt-br/cpp/cpp/?view=msvc-170)
-#### O projeto utiliza-se somente do linguagem C++
-#### The project uses only the C++ language
+#### O projeto utiliza-se somente da linguagem C++. // The project uses only the C++ language.
 
 <h3 align="center">🐺 Colaborador: <a href="https://github.com/edurs2602"><strong>@edurs2602</strong></a><br />Luis Eduardo - 20220028973</h3>
 <h4 align="center">:phone: <i>C O N T A T O S / C O N T A C T S</i> :phone:</h4>
