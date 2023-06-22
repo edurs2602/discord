@@ -12,6 +12,9 @@
 - [C++](https://learn.microsoft.com/pt-br/cpp/cpp/?view=msvc-170)
 #### O projeto utiliza-se somente da linguagem C++. // The project uses only the C++ language.
 
+<br>
+<br>
+
 <h3 align="center">🐺 Colaborador: <a href="https://github.com/edurs2602"><strong>@edurs2602</strong></a><br />Luis Eduardo - 20220028973</h3>
 <h4 align="center">:phone: <i>C O N T A T O S / C O N T A C T S</i> :phone:</h4>
 <div align="center">
