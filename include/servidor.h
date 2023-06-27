@@ -27,6 +27,7 @@ public:
   int getDono();
   std::string getNome();
   std::string getDesc();
+  std::string getCodigo();
 };
 
 #endif // !SERVIDOR_H

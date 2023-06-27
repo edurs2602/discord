@@ -24,3 +24,5 @@ int Servidor::getDono() { return idDono; }
 std::string Servidor::getNome() { return nome; }
 
 std::string Servidor::getDesc() { return descricao; }
+
+std::string Servidor::getCodigo() { return codigoConvite; }

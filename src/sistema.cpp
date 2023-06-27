@@ -68,7 +68,6 @@ bool Sistema::create_user(const std::string email, const std::string senha,
   usuarios.push_back(new Usuario(email, senha, nome));
 
   std::cout << "usuário criado com sucesso." << std::endl;
-  std::cout << getIdUsuarioAtual << std::endl;
   return true;
 }
 
@@ -204,6 +203,71 @@ void Sistema::set_server_invite_code(const std::string nome,
   }
 }
 
+void Sistema::list_servers() {
+  std::string print;
+
+  if (idUsuarioAtual == 0) {
+    std::cout << "Usuário precisa estar logado para poder listar os servidores "
+                 "disponíveis."
+              << std::endl;
+  } else {
+    if (servidores.empty() == false) {
+      for (std::vector<Servidor *>::iterator is = servidores.begin();
+           is != servidores.end(); is++) {
+        if (print == "") {
+          print = (*is)->getNome() + "\n" + (*is)->getDesc() + "\n";
+          if ((*is)->getCodigo() == "") {
+            print = print + "Servidor aberto";
+          } else {
+            print = print + (*is)->getCodigo();
+          }
+        } else {
+          print =
+              print + "\n" + (*is)->getNome() + "\n" + (*is)->getDesc() + "\n";
+          if ((*is)->getCodigo() == "") {
+            print = print + "Servidor aberto";
+          } else {
+            print = print + (*is)->getCodigo();
+          }
+        }
+      }
+    } else {
+      std::cout << "Ainda não há servidores cadastrados" << std::endl;
+    }
+  }
+  std::cout << print << std::endl;
+}
+
+void Sistema::remove_server(const std::string nome) {
+  if (idUsuarioAtual == 0) {
+    std::cout << "Usuário precisa estar logado para poder listar os servidores "
+                 "disponíveis."
+              << std::endl;
+  } else {
+    if (!servidores.empty()) {
+      if (procurarServidor(nome)) {
+        for (std::vector<Servidor *>::iterator is = servidores.begin();
+             is != servidores.end(); ++is) {
+          if (nome == (*is)->getNome()) {
+            if (idUsuarioAtual == (*is)->getDono()) {
+              delete *is;
+              servidores.erase(is);
+              std::cout << "O Servidor '" + nome + "' foi removido"
+                        << std::endl;
+              return; // Interrompe o loop após remover o servidor
+            } else {
+              std::cout << "Você não é o dono do servidor '" + nome + "'"
+                        << std::endl;
+              return; // Interrompe o loop após verificar que não é o dono
+            }
+          }
+        }
+      }
+      std::cout << "Servidor '" + nome + "' não encontrado" << std::endl;
+    }
+  }
+}
+
 void Sistema::iniciar() {
   Parser *par = new Parser();
 
@@ -247,6 +311,11 @@ void Sistema::iniciar() {
       nome = par->getArg(0);
       codigo = par->getArgsEspace();
       set_server_invite_code(nome, codigo);
+    } else if (comandoP == cte::LISTAR_SERVIDORES) {
+      list_servers();
+    } else if (comandoP == cte::REMOVER_SERVIDOR) {
+      nome = par->getArg(0);
+      remove_server(nome);
     }
   }
 }

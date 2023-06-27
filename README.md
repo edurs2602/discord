@@ -19,7 +19,6 @@ cd discord
 Agora, para compilar o Concordo, siga os seguintes passos:
 
 ```bash
-rm -rf build
 mkdir build
 cd build
 cmake ..
@@ -40,6 +39,27 @@ Dessa forma, o Concordo está pronto para rodar:
 
 <br>
 <br>
+
+## Funcionalidades
+
+O Concordo, apresenta as seguintes funcionalidades:
+
+- Sair do sistema
+- Criar usuário
+- Fazer login
+- Deslogar
+- Interações com Servidores:
+  - Criar servidor
+  - Mudar a descrição do servidor
+  - Setar código de convite do servidor
+  - Listar servidores
+  - Remover servidor
+
+Funcionalidades que ainda faltam:
+
+- Entrar em um servidor
+- Sair de um servidor
+- Listar participantes do servidor
 
 ## Informações do Aluno
 

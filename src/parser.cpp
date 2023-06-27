@@ -11,6 +11,8 @@ int Parser::qtdArgs(std::string comando) {
     if (dict.first == comando)
       return dict.second;
   }
+
+  return 0;
 }
 
 bool Parser::parse(std::string entrada) {
