@@ -1,9 +1,7 @@
-#include <iostream>
-#include <string>
-
 #ifndef CANAL_H
 #define CANAL_H
 
+#include <iostream>
 
 class Canal{
   private:
@@ -17,6 +15,8 @@ class Canal{
     void setNome(std::string nome);
 
     std::string getNome();
+
+    bool operator==(Canal& canal);
 };
 
 #endif // !CANAL_H
