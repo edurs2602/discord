@@ -31,6 +31,12 @@ Dessa forma, o Concordo está pronto para rodar:
 ./Concordo
 ```
 
+Para rodar o Concordo com o script de teste, utilize o seguinte código:
+
+```bash
+./Concordo < ../script-test.txt
+```
+
 ## 🛠 Technologies
 
 - [C++](https://learn.microsoft.com/pt-br/cpp/cpp/?view=msvc-170)
@@ -54,12 +60,9 @@ O Concordo, apresenta as seguintes funcionalidades:
   - Setar código de convite do servidor
   - Listar servidores
   - Remover servidor
-
-Funcionalidades que ainda faltam:
-
-- Entrar em um servidor
-- Sair de um servidor
-- Listar participantes do servidor
+  - Entrar em um servidor
+  - Sair de um servidor
+  - Listar participantes do servidor
 
 ## Informações do Aluno
 

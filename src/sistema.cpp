@@ -1,6 +1,7 @@
 #include <algorithm>
 #include <cstdlib>
 #include <iostream>
+#include <iterator>
 #include <string>
 #include <vector>
 
@@ -254,11 +255,11 @@ void Sistema::remove_server(const std::string nome) {
               servidores.erase(is);
               std::cout << "O Servidor '" + nome + "' foi removido"
                         << std::endl;
-              return; // Interrompe o loop após remover o servidor
+              return;
             } else {
               std::cout << "Você não é o dono do servidor '" + nome + "'"
                         << std::endl;
-              return; // Interrompe o loop após verificar que não é o dono
+              return;
             }
           }
         }
@@ -266,6 +267,96 @@ void Sistema::remove_server(const std::string nome) {
       std::cout << "Servidor '" + nome + "' não encontrado" << std::endl;
     }
   }
+}
+
+void Sistema::enter_server(const std::string nome, const std::string convite) {
+  if (idUsuarioAtual == 0) {
+    std::cout << "O Usuario precisa estar logado." << std::endl;
+  }
+  if (nomerServidorAtual == nome) {
+    std::cout << "O Usuario já está neste servidor" << std::endl;
+  } else {
+    for (std::vector<Servidor *>::iterator ser = servidores.begin();
+         ser != servidores.end(); ser++) {
+      if (nome == (*ser)->getNome()) {
+        if (idUsuarioAtual == (*ser)->getDono()) {
+          std::vector<int> participantesId = (*ser)->getParticipantesId();
+          for (std::vector<int>::iterator i = participantesId.begin();
+               i != participantesId.end(); i++) {
+            if (idUsuarioAtual == *i) {
+              nomerServidorAtual = (*ser)->getNome();
+              std::cout << "Entrou no servidor: " << nomerServidorAtual
+                        << " com sucesso" << std::endl;
+            }
+          }
+        }
+
+        std::vector<int> participantesId = (*ser)->getParticipantesId();
+        for (std::vector<int>::iterator i = participantesId.begin();
+             i != participantesId.end(); i++) {
+          if (idUsuarioAtual == *i) {
+            nomerServidorAtual = (*ser)->getNome();
+            std::cout << "Entrou no servidor: " << nomerServidorAtual
+                      << " com sucesso" << std::endl;
+          }
+        }
+
+        if ((*ser)->getCodigo() == "") {
+          (*ser)->participantesID.push_back(idUsuarioAtual);
+          nomerServidorAtual = (*ser)->getNome();
+          std::cout << "Entrou no servidor: " << nomerServidorAtual
+                    << " com sucesso" << std::endl;
+        }
+
+        if (convite == (*ser)->getCodigo()) {
+          (*ser)->participantesID.push_back(idUsuarioAtual);
+          nomerServidorAtual = (*ser)->getNome();
+          std::cout << "Entrou no servidor: " << nomerServidorAtual
+                    << " com sucesso" << std::endl;
+        } else {
+          std::cout << "O servidor necessita de código de convite" << std::endl;
+        }
+      } else {
+        std::cout << "Servidor " << nome << " não encontrado" << std::endl;
+      }
+    }
+  }
+}
+
+void Sistema::leave_server() {
+  std::string sairServer = nomerServidorAtual;
+  if (nomerServidorAtual == "") {
+    std::cout << "O Usuario não está em nenhum servidor" << std::endl;
+  }
+  nomerServidorAtual = "";
+  std::cout << "Saindo do servidor: " << sairServer << std::endl;
+}
+
+void Sistema::list_participants() {
+  std::string print = "";
+  if (nomerServidorAtual == "") {
+    std::cout << "Usuário não está conectado em nenhum servidor" << std::endl;
+  } else {
+    for (std::vector<Servidor *>::iterator ser = servidores.begin();
+         ser != servidores.end(); ser++) {
+      if (nomerServidorAtual == (*ser)->getNome()) {
+        for (std::vector<int>::iterator i = (*ser)->participantesID.begin();
+             i != (*ser)->participantesID.end(); i++) {
+          for (std::vector<Usuario *>::iterator use = usuarios.begin();
+               use != usuarios.end(); use++) {
+            if (*i == (*use)->getId()) {
+              if (print == "") {
+                print = (*use)->getNome();
+              } else {
+                print = print + "\n" + (*use)->getNome();
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  std::cout << print << std::endl;
 }
 
 void Sistema::iniciar() {
@@ -316,6 +407,14 @@ void Sistema::iniciar() {
     } else if (comandoP == cte::REMOVER_SERVIDOR) {
       nome = par->getArg(0);
       remove_server(nome);
+    } else if (comandoP == cte::ENTRAR_SERVIDOR) {
+      nome = par->getArg(0);
+      codigo = par->getArgsEspace();
+      enter_server(nome, codigo);
+    } else if (comandoP == cte::SAIR_SERVIDOR) {
+      leave_server();
+    } else if (comandoP == cte::LISTAR_PARTICIPANTES) {
+      list_participants();
     }
   }
 }

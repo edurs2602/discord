@@ -1,0 +1,37 @@
+create-user eduardo@gmail.com 12345 Luis Eduardo
+create-user joao@gmail.com 1234 Joao Eduardo
+login eduardo@gmail.com 1234
+login eduardo@gmail.com 12345
+disconnect
+login eduardo@gmail.com 12345
+set-server-desc servidor-edu "servidor do edu"
+set-server-invite-code servidor-edu 2602
+create-server servidor-edu
+set-server-desc servidor-edu "servidor do edu"
+set-server-invite-code servidor-edu 2602
+create-server servidor-csgo
+set-server-desc servidor-csgo "servidor para jogar csgo"
+set-server-invite-code servidor-csgo mibr
+create-server servidor-joao
+list-servers
+remove-server servidor-joao
+list-servers
+enter-server servidor-joao
+enter-server servidor-edu
+leave-server
+disconnect
+login joao@gmail.com 1234
+enter-server servidor-edu
+list-participants
+leave-server
+enter-server servidor-csgo furia
+enter-server servidor-csgo csgo
+leave-server
+create-server servidor-bruno-gi
+set-server-invite-code servidor-bruno-gi 3010
+enter-server servidor-bruno-gi
+list-participants
+leave-server
+create-server agata-testando
+enter-server agata-testando
+quit

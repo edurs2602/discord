@@ -21,6 +21,8 @@ void Servidor::setCodigo(std::string codigo) { this->codigoConvite = codigo; }
 
 int Servidor::getDono() { return idDono; }
 
+std::vector<int> Servidor::getParticipantesId() { return participantesID; }
+
 std::string Servidor::getNome() { return nome; }
 
 std::string Servidor::getDesc() { return descricao; }
