@@ -43,9 +43,6 @@ Para rodar o Concordo com o script de teste, utilize o seguinte código:
 
 #### O projeto utiliza-se somente da linguagem C++. // The project uses only the C++ language.
 
-<br>
-<br>
-
 ## Funcionalidades
 
 O Concordo, apresenta as seguintes funcionalidades:
