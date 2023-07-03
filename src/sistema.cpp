@@ -450,15 +450,21 @@ void Sistema::create_channel(const std::string nome, const std::string tipo) {
           canal->setNome(nome);
           (*it)->canais.push_back(canal);
           nomeCanalAtual = nome;
+          std::cout << "Canal " << nome << " de texto criado" << std::endl;
         } else if (tipo == "voz" || tipo == "Voz") {
           Canal *canal = new Canal_Voz;
           canal->setNome(nome);
           (*it)->canais.push_back(canal);
           nomeCanalAtual = nome;
+          std::cout << "Canal " << nome << " de voz criado" << std::endl;
         }
+      } else {
+        std::cout << "Permissão Negada" << std::endl;
       }
     }
   }
+
+  std::cout << "Servidor não encontrado" << std::endl;
 }
 
 void Sistema::iniciar() {
