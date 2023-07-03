@@ -12,4 +12,6 @@ add_executable( Concordo
                 src/servidor.cpp
                 src/sistema.cpp
                 src/usuario.cpp
+                src/canal_texto.cpp
+                src/canal_voz.cpp
               )

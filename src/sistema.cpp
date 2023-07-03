@@ -5,7 +5,10 @@
 #include <string>
 #include <vector>
 
+#include "../include/canal_texto.h"
+#include "../include/canal_voz.h"
 #include "../include/constantes.h"
+#include "../include/mensagem.h"
 #include "../include/parser.h"
 #include "../include/sistema.h"
 
@@ -41,6 +44,32 @@ bool Sistema::procurarServidor(const std::string &nome) {
   for (auto it = servidores.begin(); it != servidores.end(); it++) {
     if (nome == (*it)->getNome()) {
       return true;
+    }
+  }
+
+  return false;
+}
+
+bool Sistema::procurarCanal(const std::string &nome, const std::string &tipo) {
+  for (auto it = servidores.begin(); it != servidores.end(); it++) {
+    if ((*it)->getNome() == nomerServidorAtual) {
+      for (std::vector<Canal *>::iterator ch = (*it)->canais.begin();
+           ch != (*it)->canais.end();) {
+        Canal_Texto *chTexto = dynamic_cast<Canal_Texto *>(*ch);
+        Canal_Voz *chVoz = dynamic_cast<Canal_Voz *>(*ch);
+        if (tipo == "texto" || tipo == "Texto") {
+          if (chTexto != nullptr) {
+            if (chTexto->getNome() == nome) {
+              return true;
+            }
+          }
+        } else if (tipo == "voz" || tipo == "Voz") {
+          if (chVoz != nullptr) {
+            if (chVoz->getNome() == nome)
+              return true;
+          }
+        }
+      }
     }
   }
 
@@ -357,6 +386,79 @@ void Sistema::list_participants() {
     }
   }
   std::cout << print << std::endl;
+}
+
+void Sistema::list_channels() {
+  std::string chTexto = "";
+  std::string chVoz = "";
+
+  if (idUsuarioAtual == 0) {
+    std::cout << "O Usuario Precisa estar logado" << std::endl;
+  }
+
+  if (nomerServidorAtual == "") {
+    std::cout << "É necessario estar em algum servidor" << std::endl;
+  } else {
+    chTexto += "#Canal de texto";
+    chVoz += "#Canal de voz";
+    for (std::vector<Servidor *>::iterator ser = servidores.begin();
+         ser != servidores.end(); ser++) {
+      if ((*ser)->getNome() == nomerServidorAtual) {
+        for (std::vector<Canal *>::iterator chs = (*ser)->canais.begin();
+             chs != (*ser)->canais.end(); chs++) {
+          Canal_Texto *chT = dynamic_cast<Canal_Texto *>(*chs);
+          Canal_Voz *chV = dynamic_cast<Canal_Voz *>(*chs);
+          if (chT != nullptr) {
+            chTexto = chTexto + "\n" + chT->getNome();
+          } else if (chT != nullptr) {
+            chVoz = chVoz + "\n" + chV->getNome();
+          }
+        }
+      }
+    }
+  }
+  std::cout << chTexto + "\n" + chVoz << std::endl;
+}
+
+void Sistema::create_channel(const std::string nome, const std::string tipo) {
+  if (idUsuarioAtual == 0) {
+    std::cout << "O Usuario Precisa estar logado" << std::endl;
+  }
+
+  if (nomerServidorAtual == "") {
+    std::cout << "É necessario estar em algum servidor" << std::endl;
+  }
+
+  if (nome == "" || tipo == "") {
+    std::cout << "Preencha corretamente os campos para se criar um canal"
+              << std::endl;
+  }
+
+  if (procurarCanal(nome, tipo)) {
+    if (tipo == "texto" || tipo == "Texto") {
+      std::cout << "Canal de texto '" + nome + "' já existe!" << std::endl;
+    } else {
+      std::cout << "Canal de voz '" + nome + "' já existe!" << std::endl;
+    }
+  }
+
+  for (auto it = servidores.begin(); it != servidores.end(); it++) {
+    if ((*it)->getNome() == nomerServidorAtual) {
+      if ((*it)->getDono() == idUsuarioAtual) {
+        if (tipo == "texto" || tipo == "Texto") {
+          Canal *canal = new Canal_Texto;
+          canal->setNome(nome);
+          (*it)->canais.push_back(canal);
+          nomeCanalAtual = nome;
+        } else if (tipo == "voz" || tipo == "Voz") {
+          Canal *canal = new Canal_Voz;
+          canal->setNome(nome);
+          (*it)->canais.push_back(canal);
+          nomeCanalAtual = nome;
+        }
+      }
+    }
+  }
 }
 
 void Sistema::iniciar() {

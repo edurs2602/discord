@@ -3,20 +3,20 @@
 
 #include <iostream>
 
-class Canal{
-  private:
-    std::string nome;
+class Canal {
+private:
+  std::string nome;
 
-  public:
-    Canal();
-    ~Canal();
-    Canal(std::string nome);
+public:
+  Canal();
+  virtual ~Canal();
+  Canal(std::string nome);
 
-    void setNome(std::string nome);
+  void setNome(std::string nome);
 
-    std::string getNome();
+  std::string getNome();
 
-    bool operator==(Canal& canal);
+  bool operator==(Canal &canal);
 };
 
 #endif // !CANAL_H

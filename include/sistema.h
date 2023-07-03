@@ -12,7 +12,7 @@ private:
   std::vector<Usuario *> usuarios;
   std::vector<Servidor *> servidores;
   int idUsuarioAtual;
-  int idCanalAtual;
+  std::string nomeCanalAtual;
   std::string nomerServidorAtual;
 
 public:
@@ -27,8 +27,9 @@ public:
 
   bool procurarEmail(const std::string &email);
   bool procurarServidor(const std::string &nome);
+  bool procurarCanal(const std::string &nome, const std::string &tipo);
 
-  // funcionalidades
+  // funcionalidades pt 1
   void iniciar();
   bool quit();
   bool create_user(const std::string email, const std::string senha,
@@ -44,6 +45,14 @@ public:
   void enter_server(const std::string nome, const std::string convite);
   void leave_server();
   void list_participants();
+
+  // funcionalidades pt 2
+  void create_channel(const std::string nome, const std::string tipo);
+  void list_channels();
+  void enter_channel(const std::string nome);
+  void leave_channel();
+  void send_message(const std::string mensagem);
+  void list_messages();
 };
 
 #endif // !DEBUG
