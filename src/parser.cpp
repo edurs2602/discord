@@ -17,7 +17,7 @@ int Parser::qtdArgs(std::string comando) {
 
 bool Parser::parse(std::string entrada) {
   if (entrada.empty()) {
-    std::cout << "Comando Inválido" << std::endl;
+    std::cout << entrada << "Comando Inválido" << std::endl;
     return false;
   }
 

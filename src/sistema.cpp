@@ -1,7 +1,12 @@
 #include <algorithm>
+#include <chrono>
 #include <cstdlib>
+#include <ctime>
+#include <iomanip>
 #include <iostream>
 #include <iterator>
+#include <memory>
+#include <sstream>
 #include <string>
 #include <vector>
 
@@ -26,11 +31,29 @@ std::vector<Servidor *> Sistema::downloadServidores() {
   return this->servidores;
 }
 
-std::string Sistema::getNomeServidorAtual = cte::SERVIDOR_INDEFINIDO;
-int Sistema::getIdUsuarioAtual = cte::USUARIO_NAO_LOGADO;
-int Sistema::getIdCanalAtual = cte::CANAL_INDEFINIDO;
+std::string Sistema::timeMessage() {
+  std::time_t now = std::time(nullptr);
+  std::tm *timeNow = std::gmtime(&now);
 
-std::string Sistema::timeMessage() { return "123"; }
+  std::ostringstream oss;
+  oss << "<";
+
+  int day = (timeNow->tm_hour <= 2) ? timeNow->tm_mday - 1 : timeNow->tm_mday;
+  oss << std::setfill('0') << std::setw(2) << day << "/";
+  oss << std::setfill('0') << std::setw(2) << (timeNow->tm_mon + 1) << "/";
+  oss << (timeNow->tm_year + 1900) << " - ";
+
+  int hour = (timeNow->tm_hour) % 24;
+  if (hour < 0) {
+    hour += 24;
+  }
+  oss << std::setfill('0') << std::setw(2) << hour << ":";
+  oss << std::setfill('0') << std::setw(2) << timeNow->tm_min << ":";
+  oss << std::setfill('0') << std::setw(2) << timeNow->tm_sec;
+
+  oss << ">";
+  return oss.str();
+}
 
 bool Sistema::procurarEmail(const std::string &email) {
   for (auto it = usuarios.begin(); it != usuarios.end(); it++) {
@@ -56,19 +79,16 @@ bool Sistema::procurarCanal(const std::string &nome, const std::string &tipo) {
   for (auto it = servidores.begin(); it != servidores.end(); it++) {
     if ((*it)->getNome() == nomerServidorAtual) {
       for (std::vector<Canal *>::iterator ch = (*it)->canais.begin();
-           ch != (*it)->canais.end();) {
+           ch != (*it)->canais.end(); ch++) {
         Canal_Texto *chTexto = dynamic_cast<Canal_Texto *>(*ch);
         Canal_Voz *chVoz = dynamic_cast<Canal_Voz *>(*ch);
         if (tipo == "texto" || tipo == "Texto") {
-          if (chTexto != nullptr) {
-            if (chTexto->getNome() == nome) {
-              return true;
-            }
+          if (chTexto != nullptr && chTexto->getNome() == nome) {
+            return true;
           }
         } else if (tipo == "voz" || tipo == "Voz") {
-          if (chVoz != nullptr) {
-            if (chVoz->getNome() == nome)
-              return true;
+          if (chVoz != nullptr && chVoz->getNome() == nome) {
+            return true;
           }
         }
       }
@@ -318,6 +338,7 @@ void Sistema::enter_server(const std::string nome, const std::string convite) {
               nomerServidorAtual = (*ser)->getNome();
               std::cout << "Entrou no servidor: " << nomerServidorAtual
                         << " com sucesso" << std::endl;
+              return;
             }
           }
         }
@@ -329,6 +350,7 @@ void Sistema::enter_server(const std::string nome, const std::string convite) {
             nomerServidorAtual = (*ser)->getNome();
             std::cout << "Entrou no servidor: " << nomerServidorAtual
                       << " com sucesso" << std::endl;
+            return;
           }
         }
 
@@ -337,6 +359,7 @@ void Sistema::enter_server(const std::string nome, const std::string convite) {
           nomerServidorAtual = (*ser)->getNome();
           std::cout << "Entrou no servidor: " << nomerServidorAtual
                     << " com sucesso" << std::endl;
+          return;
         }
 
         if (convite == (*ser)->getCodigo()) {
@@ -344,11 +367,10 @@ void Sistema::enter_server(const std::string nome, const std::string convite) {
           nomerServidorAtual = (*ser)->getNome();
           std::cout << "Entrou no servidor: " << nomerServidorAtual
                     << " com sucesso" << std::endl;
+          return;
         } else {
           std::cout << "O servidor necessita de código de convite" << std::endl;
         }
-      } else {
-        std::cout << "Servidor " << nome << " não encontrado" << std::endl;
       }
     }
   }
@@ -415,9 +437,9 @@ void Sistema::list_channels() {
           Canal_Texto *chT = dynamic_cast<Canal_Texto *>(*chs);
           Canal_Voz *chV = dynamic_cast<Canal_Voz *>(*chs);
           if (chT != nullptr) {
-            chTexto = chTexto + "\n" + chT->getNome();
+            chTexto += "\n" + chT->getNome();
           } else if (chT != nullptr) {
-            chVoz = chVoz + "\n" + chV->getNome();
+            chVoz += "\n" + chV->getNome();
           }
         }
       }
@@ -429,48 +451,49 @@ void Sistema::list_channels() {
 void Sistema::create_channel(const std::string nome, const std::string tipo) {
   if (idUsuarioAtual == 0) {
     std::cout << "O Usuario Precisa estar logado" << std::endl;
+    return;
   }
 
   if (nomerServidorAtual == "") {
     std::cout << "É necessario estar em algum servidor" << std::endl;
+    return;
   }
 
   if (nome == "" || tipo == "") {
     std::cout << "Preencha corretamente os campos para se criar um canal"
               << std::endl;
+    return;
   }
 
   if (procurarCanal(nome, tipo)) {
-    if (tipo == "texto" || tipo == "Texto") {
-      std::cout << "Canal de texto '" + nome + "' já existe!" << std::endl;
-    } else {
-      std::cout << "Canal de voz '" + nome + "' já existe!" << std::endl;
-    }
+    std::cout << "Canal '" + nome + "' já existe!" << std::endl;
+    return;
   }
 
   for (auto it = servidores.begin(); it != servidores.end(); it++) {
     if ((*it)->getNome() == nomerServidorAtual) {
       if ((*it)->getDono() == idUsuarioAtual) {
+        Canal *canal = nullptr;
+
         if (tipo == "texto" || tipo == "Texto") {
-          Canal *canal = new Canal_Texto;
+          canal = new Canal_Texto();
           canal->setNome(nome);
           (*it)->canais.push_back(canal);
-          nomeCanalAtual = nome;
           std::cout << "Canal " << nome << " de texto criado" << std::endl;
         } else if (tipo == "voz" || tipo == "Voz") {
-          Canal *canal = new Canal_Voz;
+          canal = new Canal_Voz();
           canal->setNome(nome);
           (*it)->canais.push_back(canal);
-          nomeCanalAtual = nome;
           std::cout << "Canal " << nome << " de voz criado" << std::endl;
         }
+
+        return;
       } else {
         std::cout << "Permissão Negada" << std::endl;
+        return;
       }
     }
   }
-
-  std::cout << "Servidor não encontrado" << std::endl;
 }
 
 void Sistema::enter_channel(const std::string nome) {
@@ -544,7 +567,6 @@ void Sistema::send_message(const std::string mensagem) {
       }
     }
   }
-  std::cout << "Canal não encontrado\n";
 }
 
 void Sistema::list_messages() {
@@ -573,11 +595,11 @@ void Sistema::list_messages() {
             for (auto usr = usuarios.begin(); usr != usuarios.end(); usr++) {
               if (im->getEnviadoPor() == (*usr)->getId()) {
                 if (print == "") {
-                  print = (*usr)->getNome() + im->getDataHora() + " : " +
+                  print = (*usr)->getNome() + im->getDataHora() + ": " +
                           im->getConteudo();
                 } else {
-                  print = print + "\n" + (*usr)->getNome() + im->getDataHora() +
-                          " : " + im->getConteudo();
+                  print += "\n" + (*usr)->getNome() + im->getDataHora() + ": " +
+                           im->getConteudo();
                 }
               }
             }
@@ -590,9 +612,10 @@ void Sistema::list_messages() {
           if (voz->getUltima() == "") {
             std::cout
                 << "Nao foi encontrada nenhuma mensagem de voz para exibir\n";
-          }
-          for (auto usr = usuarios.begin(); usr != usuarios.end(); usr++) {
-            print = (*usr)->getNome() + voz->getUltima();
+          } else {
+            for (auto usr = usuarios.begin(); usr != usuarios.end(); usr++) {
+              print += (*usr)->getNome() + voz->getUltima() + "\n";
+            }
           }
         }
       }
@@ -604,7 +627,7 @@ void Sistema::list_messages() {
 void Sistema::iniciar() {
   Parser *par = new Parser();
 
-  std::string comandoL, nome, email, senha, desc, codigo, comandoP;
+  std::string comandoL, nome, email, senha, desc, codigo, tipo, msg, comandoP;
   bool parserOk;
 
   while (true) {
@@ -657,6 +680,22 @@ void Sistema::iniciar() {
       leave_server();
     } else if (comandoP == cte::LISTAR_PARTICIPANTES) {
       list_participants();
+    } else if (comandoP == cte::LISTAR_CANAIS) {
+      list_channels();
+    } else if (comandoP == cte::CRIAR_CANAL) {
+      nome = par->getArg(0);
+      tipo = par->getArg(1);
+      create_channel(nome, tipo);
+    } else if (comandoP == cte::ENTRAR_CANAL) {
+      nome = par->getArg(0);
+      enter_channel(nome);
+    } else if (comandoP == cte::SAIR_CANAL) {
+      leave_channel();
+    } else if (comandoP == cte::ENVIAR_MENSAGEM) {
+      msg = par->getArgsEspace();
+      send_message(msg);
+    } else if (comandoP == cte::LISTAR_MENSAGENS) {
+      list_messages();
     }
   }
 }

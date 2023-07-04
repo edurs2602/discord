@@ -34,4 +34,25 @@ list-participants
 leave-server
 create-server agata-testando
 enter-server agata-testando
+disconnect
+
+create-user edu@email senha eduardo
+create-user pablo@email pablo Pablo Deyvid
+login edu@email senha
+create-server Servidor-canais
+create-channel canal-texto-1 texto
+list-channels
+send-message Ola pessoal
+list-messages
+create-server Servidor2
+disconnect
+login pablo@email pablo
+enter-server Servidor-canais
+send-message oi prazer
+list-messages
+disconnect
+login edu@email senha
+enter-server Servidor-canais
+create-channel canal-voz-1 voz
+list-channels
 quit

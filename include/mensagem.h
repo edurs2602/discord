@@ -19,9 +19,9 @@ public:
   void setDataHora(std::string dataHora);
   void setConteudo(std::string conteudo);
 
-  int getEnviadoPor();
-  std::string getDataHora();
-  std::string getConteudo();
+  int getEnviadoPor() const;
+  std::string getDataHora() const;
+  std::string getConteudo() const;
 
   bool operator==(Mensagem &mensagem);
 };

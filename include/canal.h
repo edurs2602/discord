@@ -16,7 +16,7 @@ public:
 
   std::string getNome();
 
-  bool operator==(Canal &canal);
+  bool operator==(const Canal &other) const;
 };
 
 #endif // !CANAL_H

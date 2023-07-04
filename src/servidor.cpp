@@ -2,7 +2,11 @@
 
 Servidor::Servidor() {}
 
-Servidor::~Servidor() {}
+Servidor::~Servidor() {
+  for (auto canal : canais) {
+    delete canal;
+  }
+}
 
 Servidor::Servidor(int idDono, std::string nome, std::string descricao) {
   this->idDono = idDono;

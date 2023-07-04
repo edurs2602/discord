@@ -19,8 +19,8 @@ void Mensagem::setDataHora(std::string dataHora) { this->dataHora = dataHora; }
 
 void Mensagem::setConteudo(std::string conteudo) { this->conteudo = conteudo; }
 
-int Mensagem::getEnviadoPor() { return this->enviadaPor; }
+int Mensagem::getEnviadoPor() const { return this->enviadaPor; }
 
-std::string Mensagem::getDataHora() { return this->dataHora; }
+std::string Mensagem::getDataHora() const { return this->dataHora; }
 
-std::string Mensagem::getConteudo() { return this->conteudo; }
+std::string Mensagem::getConteudo() const { return this->conteudo; }
