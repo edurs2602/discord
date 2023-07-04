@@ -42,17 +42,24 @@ login edu@email senha
 create-server Servidor-canais
 create-channel canal-texto-1 texto
 list-channels
-send-message Ola pessoal
-list-messages
+send-message Ola pessoal eu sou o Edu
+send-message Fiz esse servidor para conversar com vocês
+send-message E jogarmos algumas coisas
 create-server Servidor2
 disconnect
 login pablo@email pablo
 enter-server Servidor-canais
-send-message oi prazer
-list-messages
+send-message oi prazer, me chamo pablo
+send-message queria jogar minecraft
 disconnect
 login edu@email senha
 enter-server Servidor-canais
+create-channel canal-texto-2 texto
 create-channel canal-voz-1 voz
-list-channels
+create-channel canal-voz-2 voz
+create-channel canal-texto-1 texto
+enter-channel canal-voz-2
+leave-channel
+enter-channel canal-voz-1
+list-messages
 quit

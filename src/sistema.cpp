@@ -438,7 +438,7 @@ void Sistema::list_channels() {
           Canal_Voz *chV = dynamic_cast<Canal_Voz *>(*chs);
           if (chT != nullptr) {
             chTexto += "\n" + chT->getNome();
-          } else if (chT != nullptr) {
+          } else if (chV != nullptr) {
             chVoz += "\n" + chV->getNome();
           }
         }
@@ -479,11 +479,13 @@ void Sistema::create_channel(const std::string nome, const std::string tipo) {
           canal = new Canal_Texto();
           canal->setNome(nome);
           (*it)->canais.push_back(canal);
+          nomeCanalAtual = nome;
           std::cout << "Canal " << nome << " de texto criado" << std::endl;
         } else if (tipo == "voz" || tipo == "Voz") {
           canal = new Canal_Voz();
           canal->setNome(nome);
           (*it)->canais.push_back(canal);
+          nomeCanalAtual = nome;
           std::cout << "Canal " << nome << " de voz criado" << std::endl;
         }
 
@@ -519,7 +521,6 @@ void Sistema::enter_channel(const std::string nome) {
         }
       }
     }
-    std::cout << "Este canal não existe" << std::endl;
   }
 }
 
@@ -554,15 +555,20 @@ void Sistema::send_message(const std::string mensagem) {
       for (auto chs = (*it)->canais.begin(); chs != (*it)->canais.end();
            chs++) {
         Canal_Texto *txt = dynamic_cast<Canal_Texto *>(*chs);
-        Canal_Voz *voz = dynamic_cast<Canal_Voz *>(*chs);
         if (txt != nullptr) {
           Mensagem sms(timeMessage(), idUsuarioAtual, mensagem);
           txt->texto.push_back(sms);
           std::cout << "Mensagem de texto enviada\n";
-        } else if (voz != nullptr) {
+        }
+      }
+      for (auto chs = (*it)->canais.begin(); chs != (*it)->canais.end();
+           chs++) {
+        Canal_Voz *voz = dynamic_cast<Canal_Voz *>(*chs);
+        if (voz != nullptr) {
           Mensagem sms(timeMessage(), idUsuarioAtual, mensagem);
           voz->setUltima(sms);
           std::cout << "Mensagem de voz enviada\n";
+          std::cout << "Mensagem de voz: " << voz->getUltima() + "\n";
         }
       }
     }
@@ -692,7 +698,8 @@ void Sistema::iniciar() {
     } else if (comandoP == cte::SAIR_CANAL) {
       leave_channel();
     } else if (comandoP == cte::ENVIAR_MENSAGEM) {
-      msg = par->getArgsEspace();
+      std::string conteudo = comandoL.substr(comandoP.length());
+      msg = conteudo;
       send_message(msg);
     } else if (comandoP == cte::LISTAR_MENSAGENS) {
       list_messages();
