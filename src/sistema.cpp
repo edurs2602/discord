@@ -30,6 +30,8 @@ std::string Sistema::getNomeServidorAtual = cte::SERVIDOR_INDEFINIDO;
 int Sistema::getIdUsuarioAtual = cte::USUARIO_NAO_LOGADO;
 int Sistema::getIdCanalAtual = cte::CANAL_INDEFINIDO;
 
+std::string Sistema::timeMessage() { return "123"; }
+
 bool Sistema::procurarEmail(const std::string &email) {
   for (auto it = usuarios.begin(); it != usuarios.end(); it++) {
     if (email == (*it)->getEmail()) {
@@ -353,12 +355,16 @@ void Sistema::enter_server(const std::string nome, const std::string convite) {
 }
 
 void Sistema::leave_server() {
-  std::string sairServer = nomerServidorAtual;
+  if (idUsuarioAtual == 0) {
+    std::cout << "O Usuario precisa estar logado." << std::endl;
+  }
+
   if (nomerServidorAtual == "") {
     std::cout << "O Usuario não está em nenhum servidor" << std::endl;
   }
+
   nomerServidorAtual = "";
-  std::cout << "Saindo do servidor: " << sairServer << std::endl;
+  std::cout << "Saindo do servidor..." << std::endl;
 }
 
 void Sistema::list_participants() {
@@ -465,6 +471,134 @@ void Sistema::create_channel(const std::string nome, const std::string tipo) {
   }
 
   std::cout << "Servidor não encontrado" << std::endl;
+}
+
+void Sistema::enter_channel(const std::string nome) {
+  if (idUsuarioAtual == 0) {
+    std::cout << "O Usuario Precisa estar logado" << std::endl;
+  }
+
+  if (nomerServidorAtual == "") {
+    std::cout << "É necessario estar em algum servidor" << std::endl;
+  }
+
+  if (nomeCanalAtual == nome) {
+    std::cout << "O Usuario já está no canal" << std::endl;
+  } else {
+    for (auto it = servidores.begin(); it != servidores.end(); it++) {
+      if (nomerServidorAtual == (*it)->getNome()) {
+        for (auto chs = (*it)->canais.begin(); chs != (*it)->canais.end();
+             chs++) {
+          if ((*chs)->getNome() == nome) {
+            nomeCanalAtual = (*chs)->getNome();
+            std::cout << "Entrou no canal: " << nome << std::endl;
+          }
+        }
+      }
+    }
+    std::cout << "Este canal não existe" << std::endl;
+  }
+}
+
+void Sistema::leave_channel() {
+  if (idUsuarioAtual == 0) {
+    std::cout << "O Usuario Precisa estar logado" << std::endl;
+  }
+
+  if (nomeCanalAtual == "") {
+    std::cout << "É necessario estar em algum canal" << std::endl;
+  }
+
+  nomeCanalAtual = "";
+  std::cout << "Saindo do canal..." << std::endl;
+}
+
+void Sistema::send_message(const std::string mensagem) {
+  if (idUsuarioAtual == 0) {
+    std::cout << "O Usuario Precisa estar logado" << std::endl;
+  }
+
+  if (nomerServidorAtual == "") {
+    std::cout << "É necessario estar em algum servidor" << std::endl;
+  }
+
+  if (nomeCanalAtual == "") {
+    std::cout << "É necessario estar em algum canal" << std::endl;
+  }
+
+  for (auto it = servidores.begin(); it != servidores.end(); it++) {
+    if ((*it)->getNome() == nomerServidorAtual) {
+      for (auto chs = (*it)->canais.begin(); chs != (*it)->canais.end();
+           chs++) {
+        Canal_Texto *txt = dynamic_cast<Canal_Texto *>(*chs);
+        Canal_Voz *voz = dynamic_cast<Canal_Voz *>(*chs);
+        if (txt != nullptr) {
+          Mensagem sms(timeMessage(), idUsuarioAtual, mensagem);
+          txt->texto.push_back(sms);
+          std::cout << "Mensagem de texto enviada\n";
+        } else if (voz != nullptr) {
+          Mensagem sms(timeMessage(), idUsuarioAtual, mensagem);
+          voz->setUltima(sms);
+          std::cout << "Mensagem de voz enviada\n";
+        }
+      }
+    }
+  }
+  std::cout << "Canal não encontrado\n";
+}
+
+void Sistema::list_messages() {
+  std::string print = "";
+
+  if (idUsuarioAtual == 0) {
+    std::cout << "O Usuario Precisa estar logado" << std::endl;
+  }
+
+  if (nomerServidorAtual == "") {
+    std::cout << "É necessario estar em algum servidor" << std::endl;
+  }
+
+  if (nomeCanalAtual == "") {
+    std::cout << "É necessario estar em algum canal" << std::endl;
+  }
+
+  for (auto it = servidores.begin(); it != servidores.end(); it++) {
+    if ((*it)->getNome() == nomerServidorAtual) {
+      for (auto chs = (*it)->canais.begin(); chs != (*it)->canais.end();
+           chs++) {
+        Canal_Texto *txt = dynamic_cast<Canal_Texto *>(*chs);
+        Canal_Voz *voz = dynamic_cast<Canal_Voz *>(*chs);
+        if (txt != nullptr) {
+          for (auto im = txt->texto.begin(); im != txt->texto.end(); im++) {
+            for (auto usr = usuarios.begin(); usr != usuarios.end(); usr++) {
+              if (im->getEnviadoPor() == (*usr)->getId()) {
+                if (print == "") {
+                  print = (*usr)->getNome() + im->getDataHora() + " : " +
+                          im->getConteudo();
+                } else {
+                  print = print + "\n" + (*usr)->getNome() + im->getDataHora() +
+                          " : " + im->getConteudo();
+                }
+              }
+            }
+          }
+          if (print == "") {
+            std::cout
+                << "Nao foi encontrada nenhuma mensagem de texto para exibir\n";
+          }
+        } else if (voz != nullptr) {
+          if (voz->getUltima() == "") {
+            std::cout
+                << "Nao foi encontrada nenhuma mensagem de voz para exibir\n";
+          }
+          for (auto usr = usuarios.begin(); usr != usuarios.end(); usr++) {
+            print = (*usr)->getNome() + voz->getUltima();
+          }
+        }
+      }
+    }
+  }
+  std::cout << print << "\n";
 }
 
 void Sistema::iniciar() {

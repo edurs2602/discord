@@ -7,9 +7,9 @@ Mensagem::Mensagem() {}
 
 Mensagem::~Mensagem() {}
 
-Mensagem::Mensagem(int enviadaPor, std::string dataHora, std::string conteudo) {
-  this->enviadaPor = enviadaPor;
+Mensagem::Mensagem(std::string dataHora, int enviadaPor, std::string conteudo) {
   this->dataHora = dataHora;
+  this->enviadaPor = enviadaPor;
   this->conteudo = conteudo;
 }
 

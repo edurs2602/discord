@@ -25,6 +25,8 @@ public:
   static int getIdUsuarioAtual;
   static int getIdCanalAtual;
 
+  std::string timeMessage();
+
   bool procurarEmail(const std::string &email);
   bool procurarServidor(const std::string &nome);
   bool procurarCanal(const std::string &nome, const std::string &tipo);

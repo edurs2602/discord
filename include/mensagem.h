@@ -13,7 +13,7 @@ private:
 public:
   Mensagem();
   ~Mensagem();
-  Mensagem(int enviadaPor, std::string dataHora, std::string conteudo);
+  Mensagem(std::string dataHora, int enviadaPor, std::string conteudo);
 
   void setEnviadoPor(int id);
   void setDataHora(std::string dataHora);
