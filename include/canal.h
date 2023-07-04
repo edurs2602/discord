@@ -3,6 +3,15 @@
 
 #include <iostream>
 
+/*
+ * Classe Canal
+ * com um atributo privado chamado de nome do tipo string
+ * com funções construtura e destrutora
+ * função que seta o nome do Canal
+ * outra função que retorna o nome do canal
+ * e uma sobrecarga de operador
+ */
+
 class Canal {
 private:
   std::string nome;
@@ -16,7 +25,7 @@ public:
 
   std::string getNome();
 
-  bool operator==(Canal &canal);
+  bool operator==(const Canal &other) const;
 };
 
 #endif // !CANAL_H

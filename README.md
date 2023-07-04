@@ -31,7 +31,7 @@ Dessa forma, o Concordo está pronto para rodar:
 ./Concordo
 ```
 
-Para rodar o Concordo com o script de teste, utilize o seguinte código:
+Para rodar o Concordo com o script de teste atualizado para a parte 2, utilize o seguinte código:
 
 ```bash
 ./Concordo < ../script-test.txt
@@ -60,6 +60,15 @@ O Concordo, apresenta as seguintes funcionalidades:
   - Entrar em um servidor
   - Sair de um servidor
   - Listar participantes do servidor
+
+Funcionalidades da Parte 2:
+
+- Listar Canais
+- Criar Canais
+- Entrar em algum Canal
+- Sair de algum Canal
+- Mandar alguma mensagem de texto
+- Listar as mensagens do Servidor
 
 ## Informações do Aluno
 
