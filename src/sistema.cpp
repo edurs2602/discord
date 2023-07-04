@@ -17,6 +17,10 @@
 #include "../include/parser.h"
 #include "../include/sistema.h"
 
+/**
+ * Destrói o objeto Sistema, liberando a memória alocada para os servidores e
+ * usuários.
+ */
 Sistema::~Sistema() {
   for (int i = 0; i < servidores.size(); i++)
     delete servidores[i];
@@ -25,12 +29,28 @@ Sistema::~Sistema() {
     delete usuarios[i];
 }
 
+/**
+ * Retorna um vetor com todos os usuários do sistema.
+ *
+ * @return um vetor com todos os usuários do sistema.
+ */
 std::vector<Usuario *> Sistema::downloadUsuarios() { return this->usuarios; }
 
+/**
+ * Retorna um vetor com todos os servidores do sistema.
+ *
+ * @return um vetor com todos os servidores do sistema.
+ */
 std::vector<Servidor *> Sistema::downloadServidores() {
   return this->servidores;
 }
 
+/**
+ * Retorna uma string com a data e hora atuais no formato "<dd/mm/yyyy -
+ * hh:mm:ss>".
+ *
+ * @return uma string com a data e hora atuais.
+ */
 std::string Sistema::timeMessage() {
   std::time_t now = std::time(nullptr);
   std::tm *timeNow = std::gmtime(&now);
@@ -55,6 +75,12 @@ std::string Sistema::timeMessage() {
   return oss.str();
 }
 
+/**
+ * Verifica se um determinado email já está cadastrado no sistema.
+ *
+ * @param email o email a ser verificado.
+ * @return true se o email já estiver cadastrado, false caso contrário.
+ */
 bool Sistema::procurarEmail(const std::string &email) {
   for (auto it = usuarios.begin(); it != usuarios.end(); it++) {
     if (email == (*it)->getEmail()) {
@@ -65,6 +91,12 @@ bool Sistema::procurarEmail(const std::string &email) {
   return false;
 }
 
+/**
+ * Verifica se um determinado servidor já está cadastrado no sistema.
+ *
+ * @param nome o nome do servidor a ser verificado.
+ * @return true se o servidor já estiver cadastrado, false caso contrário.
+ */
 bool Sistema::procurarServidor(const std::string &nome) {
   for (auto it = servidores.begin(); it != servidores.end(); it++) {
     if (nome == (*it)->getNome()) {
@@ -75,6 +107,13 @@ bool Sistema::procurarServidor(const std::string &nome) {
   return false;
 }
 
+/**
+ * Verifica se um determinado canal de um servidor está cadastrado no sistema.
+ *
+ * @param nome o nome do canal a ser verificado.
+ * @param tipo o tipo do canal ("texto" ou "voz").
+ * @return true se o canal estiver cadastrado, false caso contrário.
+ */
 bool Sistema::procurarCanal(const std::string &nome, const std::string &tipo) {
   for (auto it = servidores.begin(); it != servidores.end(); it++) {
     if ((*it)->getNome() == nomerServidorAtual) {
@@ -98,11 +137,24 @@ bool Sistema::procurarCanal(const std::string &nome, const std::string &tipo) {
   return false;
 }
 
+/**
+ * Finaliza o sistema Concordo.
+ *
+ * @return true, indicando que o sistema deve ser finalizado.
+ */
 bool Sistema::quit() {
   std::cout << "Finalizando o Concordo..." << std::endl;
   return true;
 }
 
+/**
+ * Cria um novo usuário com o email, senha e nome fornecidos.
+ *
+ * @param email o email do usuário.
+ * @param senha a senha do usuário.
+ * @param nome o nome do usuário.
+ * @return true se o usuário foi criado com sucesso, false caso contrário.
+ */
 bool Sistema::create_user(const std::string email, const std::string senha,
                           const std::string nome) {
   if (procurarEmail(email)) {
@@ -123,6 +175,12 @@ bool Sistema::create_user(const std::string email, const std::string senha,
   return true;
 }
 
+/**
+ * Realiza o login de um usuário com o email e senha fornecidos.
+ *
+ * @param email o email do usuário.
+ * @param senha a senha do usuário.
+ */
 void Sistema::login(const std::string email, const std::string senha) {
   nomerServidorAtual = "";
   if (idUsuarioAtual != 0) {
@@ -159,6 +217,9 @@ void Sistema::login(const std::string email, const std::string senha) {
   }
 }
 
+/**
+ * Desconecta o usuário atual.
+ */
 void Sistema::disconnect() {
   if (idUsuarioAtual != 0) {
     for (std::vector<Usuario *>::iterator iu = usuarios.begin();
@@ -175,6 +236,11 @@ void Sistema::disconnect() {
   std::cout << "Este Usuario não está conectado" << std::endl;
 }
 
+/**
+ * Cria um novo servidor com o nome fornecido.
+ *
+ * @param nome o nome do servidor.
+ */
 void Sistema::create_server(const std::string nome) {
   if (idUsuarioAtual == 0) {
     std::cout << "O Usuario precisa estar logado para efetuar esta operação"
@@ -198,6 +264,12 @@ void Sistema::create_server(const std::string nome) {
   }
 }
 
+/**
+ * Define a descrição de um servidor existente.
+ *
+ * @param nome o nome do servidor.
+ * @param desc a nova descrição do servidor.
+ */
 void Sistema::set_server_desc(const std::string nome, const std::string desc) {
   if (idUsuarioAtual == 0) {
     std::cout << "O Usuario precisa estar logado para efetuar esta operação"
@@ -226,6 +298,12 @@ void Sistema::set_server_desc(const std::string nome, const std::string desc) {
   }
 }
 
+/**
+ * Define o código de convite de um servidor existente.
+ *
+ * @param nome o nome do servidor.
+ * @param codigo o novo código de convite do servidor.
+ */
 void Sistema::set_server_invite_code(const std::string nome,
                                      const std::string codigo) {
   if (idUsuarioAtual == 0) {
@@ -255,6 +333,9 @@ void Sistema::set_server_invite_code(const std::string nome,
   }
 }
 
+/**
+ * Lista os servidores disponíveis no sistema.
+ */
 void Sistema::list_servers() {
   std::string print;
 
@@ -290,6 +371,9 @@ void Sistema::list_servers() {
   std::cout << print << std::endl;
 }
 
+/**
+ * Remove um servidor do sistema.
+ */
 void Sistema::remove_server(const std::string nome) {
   if (idUsuarioAtual == 0) {
     std::cout << "Usuário precisa estar logado para poder listar os servidores "
@@ -320,6 +404,12 @@ void Sistema::remove_server(const std::string nome) {
   }
 }
 
+/**
+ * Método para entrar em um servidor.
+ *
+ * @param nome     O nome do servidor para entrar.
+ * @param convite  O código de convite para o servidor (opcional).
+ */
 void Sistema::enter_server(const std::string nome, const std::string convite) {
   if (idUsuarioAtual == 0) {
     std::cout << "O Usuario precisa estar logado." << std::endl;
@@ -376,6 +466,9 @@ void Sistema::enter_server(const std::string nome, const std::string convite) {
   }
 }
 
+/**
+ * Método para sair do servidor atual.
+ */
 void Sistema::leave_server() {
   if (idUsuarioAtual == 0) {
     std::cout << "O Usuario precisa estar logado." << std::endl;
@@ -416,6 +509,9 @@ void Sistema::list_participants() {
   std::cout << print << std::endl;
 }
 
+/**
+ * Método para listar todos os canais do servidor.
+ */
 void Sistema::list_channels() {
   std::string chTexto = "";
   std::string chVoz = "";
@@ -448,6 +544,11 @@ void Sistema::list_channels() {
   std::cout << chTexto + "\n" + chVoz << std::endl;
 }
 
+/**
+ * Método para criar os canais no servidor.
+ * @param nome     O nome do canal para criar.
+ * @param tipo    O tipo de canal para se criar.
+ */
 void Sistema::create_channel(const std::string nome, const std::string tipo) {
   if (idUsuarioAtual == 0) {
     std::cout << "O Usuario Precisa estar logado" << std::endl;
@@ -498,6 +599,10 @@ void Sistema::create_channel(const std::string nome, const std::string tipo) {
   }
 }
 
+/**
+ * Método para entrar no canal disponiveis no servidor.
+ * @param nome     O nome do canal para entrar nele se existir.
+ */
 void Sistema::enter_channel(const std::string nome) {
   if (idUsuarioAtual == 0) {
     std::cout << "O Usuario Precisa estar logado" << std::endl;
@@ -524,6 +629,9 @@ void Sistema::enter_channel(const std::string nome) {
   }
 }
 
+/**
+ * Método para sair do canal.
+ */
 void Sistema::leave_channel() {
   if (idUsuarioAtual == 0) {
     std::cout << "O Usuario Precisa estar logado" << std::endl;
@@ -575,6 +683,9 @@ void Sistema::send_message(const std::string mensagem) {
   }
 }
 
+/**
+ * Método para listar as mensagens do servidor.
+ */
 void Sistema::list_messages() {
   std::string print = "";
 
@@ -630,6 +741,10 @@ void Sistema::list_messages() {
   std::cout << print << "\n";
 }
 
+/**
+ * Método para iniciar o Parser do sistema.
+ * e pegar os comandos e argumentos passados pelo usuario.
+ */
 void Sistema::iniciar() {
   Parser *par = new Parser();
 
