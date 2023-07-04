@@ -1,0 +1,33 @@
+\doxysection{parser.\+h}
+\hypertarget{parser_8h_source}{}\label{parser_8h_source}\index{include/parser.h@{include/parser.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ PARSER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ PARSER\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classParser}{Parser}}\ \{}
+\DoxyCodeLine{00012\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00013\ \ \ std::string\ comando;\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ O\ comando\ extraído\ da\ entrada.}}
+\DoxyCodeLine{00014\ \ \ std::vector<std::string>\ args;\ \textcolor{comment}{//\ Os\ argumentos\ extraídos\ da\ entrada.}}
+\DoxyCodeLine{00015\ \ \ std::string\ argsEspace;\ \textcolor{comment}{//\ Os\ argumentos\ concatenados\ separados\ por\ espaço.}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00023\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classParser_ab7ae823c47f6d3b2094c9c5cf285a8bd}{parse}}(std::string\ entrada);}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00028\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classParser_acd47193641081d8be4f05c9bb2581369}{print}}();}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00034\ \ \ std::string\ \mbox{\hyperlink{classParser_ada659f0b8d808a544b0f0a993f5c8514}{getComando}}();}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00041\ \ \ std::string\ \mbox{\hyperlink{classParser_a8b3322a56268700844fbdde7becfaef6}{getArg}}(\textcolor{keywordtype}{int}\ index);}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00047\ \ \ std::string\ \mbox{\hyperlink{classParser_a53cdc1218510283c3dde72387d0470ee}{getArgsEspace}}();}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00054\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classParser_a3502ad3c1ce5ff4e27bbca5d6ca181c9}{qtdArgs}}(std::string\ comando);}
+\DoxyCodeLine{00055\ \};}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ !PARSER\_H}}
+
+\end{DoxyCode}

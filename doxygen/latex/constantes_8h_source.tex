@@ -1,0 +1,80 @@
+\doxysection{constantes.\+h}
+\hypertarget{constantes_8h_source}{}\label{constantes_8h_source}\index{include/constantes.h@{include/constantes.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ CONSTANTES\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ CONSTANTES\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ \ Arquivo\ de\ constantes}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{namespace\ }cte\ \{}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{const}\ std::string\ SAIR\ =\ \textcolor{stringliteral}{"{}quit"{}};\ \textcolor{comment}{//\ Comando\ para\ sair\ do\ programa.}}
+\DoxyCodeLine{00014\ \textcolor{keyword}{const}\ std::string\ CRIAR\_USUARIO\ =}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{stringliteral}{"{}create-\/user"{}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Comando\ para\ criar\ um\ novo\ usuário.}}
+\DoxyCodeLine{00016\ \textcolor{keyword}{const}\ std::string\ LOGIN\ =\ \textcolor{stringliteral}{"{}login"{}};\ \textcolor{comment}{//\ Comando\ para\ fazer\ login.}}
+\DoxyCodeLine{00017\ \textcolor{keyword}{const}\ std::string\ DESCONECTAR\ =}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{stringliteral}{"{}disconnect"{}};\ \textcolor{comment}{//\ Comando\ para\ desconectar\ do\ servidor.}}
+\DoxyCodeLine{00019\ \textcolor{keyword}{const}\ std::string\ CRIAR\_SERVIDOR\ =}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{stringliteral}{"{}create-\/server"{}};\ \textcolor{comment}{//\ Comando\ para\ criar\ um\ novo\ servidor.}}
+\DoxyCodeLine{00021\ \textcolor{keyword}{const}\ std::string\ MUDAR\_DESCRICAO\_SERVIDOR\ =}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{stringliteral}{"{}set-\/server-\/desc"{}};\ \textcolor{comment}{//\ Comando\ para\ mudar\ a\ descrição\ de\ um\ servidor.}}
+\DoxyCodeLine{00023\ \textcolor{keyword}{const}\ std::string\ MUDAR\_CONVITE\_SERVIDOR\ =}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{stringliteral}{"{}set-\/server-\/invite-\/code"{}};\ \textcolor{comment}{//\ Comando\ para\ mudar\ o\ código\ de\ convite\ de\ um}}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ servidor.}}
+\DoxyCodeLine{00026\ \textcolor{keyword}{const}\ std::string\ LISTAR\_SERVIDORES\ =}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{stringliteral}{"{}list-\/servers"{}};\ \textcolor{comment}{//\ Comando\ para\ listar\ os\ servidores\ disponíveis.}}
+\DoxyCodeLine{00028\ \textcolor{keyword}{const}\ std::string\ REMOVER\_SERVIDOR\ =}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{stringliteral}{"{}remove-\/server"{}};\ \textcolor{comment}{//\ Comando\ para\ remover\ um\ servidor.}}
+\DoxyCodeLine{00030\ \textcolor{keyword}{const}\ std::string\ ENTRAR\_SERVIDOR\ =}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{stringliteral}{"{}enter-\/server"{}};\ \textcolor{comment}{//\ Comando\ para\ entrar\ em\ um\ servidor.}}
+\DoxyCodeLine{00032\ \textcolor{keyword}{const}\ std::string\ SAIR\_SERVIDOR\ =}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{stringliteral}{"{}leave-\/server"{}};\ \textcolor{comment}{//\ Comando\ para\ sair\ de\ um\ servidor.}}
+\DoxyCodeLine{00034\ \textcolor{keyword}{const}\ std::string\ LISTAR\_PARTICIPANTES\ =}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{stringliteral}{"{}list-\/participants"{}};\ \textcolor{comment}{//\ Comando\ para\ listar\ os\ participantes\ de\ um\ servidor.}}
+\DoxyCodeLine{00036\ \textcolor{keyword}{const}\ std::string\ LISTAR\_CANAIS\ =}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{stringliteral}{"{}list-\/channels"{}};\ \textcolor{comment}{//\ Comando\ para\ listar\ os\ canais\ de\ um\ servidor.}}
+\DoxyCodeLine{00038\ \textcolor{keyword}{const}\ std::string\ CRIAR\_CANAL\ =}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{stringliteral}{"{}create-\/channel"{}};\ \textcolor{comment}{//\ Comando\ para\ criar\ um\ novo\ canal\ em\ um\ servidor.}}
+\DoxyCodeLine{00040\ \textcolor{keyword}{const}\ std::string\ ENTRAR\_CANAL\ =}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{stringliteral}{"{}enter-\/channel"{}};\ \textcolor{comment}{//\ Comando\ para\ entrar\ em\ um\ canal.}}
+\DoxyCodeLine{00042\ \textcolor{keyword}{const}\ std::string\ SAIR\_CANAL\ =}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{stringliteral}{"{}leave-\/channel"{}};\ \textcolor{comment}{//\ Comando\ para\ sair\ de\ um\ canal.}}
+\DoxyCodeLine{00044\ \textcolor{keyword}{const}\ std::string\ ENVIAR\_MENSAGEM\ =}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{stringliteral}{"{}send-\/message"{}};\ \textcolor{comment}{//\ Comando\ para\ enviar\ uma\ mensagem.}}
+\DoxyCodeLine{00046\ \textcolor{keyword}{const}\ std::string\ LISTAR\_MENSAGENS\ =}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{stringliteral}{"{}list-\/messages"{}};\ \textcolor{comment}{//\ Comando\ para\ listar\ as\ mensagens\ de\ um\ canal.}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{keyword}{const}\ std::vector<std::pair<std::string,\ int>>\ commands\_simple\_args\ =\ \{}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \{SAIR,\ 0\},}
+\DoxyCodeLine{00052\ \ \ \ \ \{CRIAR\_USUARIO,\ 2\},}
+\DoxyCodeLine{00053\ \ \ \ \ \{LOGIN,\ 2\},}
+\DoxyCodeLine{00054\ \ \ \ \ \{DESCONECTAR,\ 0\},}
+\DoxyCodeLine{00055\ \ \ \ \ \{CRIAR\_SERVIDOR,\ 1\},}
+\DoxyCodeLine{00056\ \ \ \ \ \{MUDAR\_DESCRICAO\_SERVIDOR,\ 1\},}
+\DoxyCodeLine{00057\ \ \ \ \ \{MUDAR\_CONVITE\_SERVIDOR,\ 1\},}
+\DoxyCodeLine{00058\ \ \ \ \ \{LISTAR\_SERVIDORES,\ 0\},}
+\DoxyCodeLine{00059\ \ \ \ \ \{REMOVER\_SERVIDOR,\ 1\},}
+\DoxyCodeLine{00060\ \ \ \ \ \{ENTRAR\_SERVIDOR,\ 1\},}
+\DoxyCodeLine{00061\ \ \ \ \ \{SAIR\_SERVIDOR,\ 0\},}
+\DoxyCodeLine{00062\ \ \ \ \ \{LISTAR\_PARTICIPANTES,\ 0\},}
+\DoxyCodeLine{00063\ \ \ \ \ \{LISTAR\_CANAIS,\ 0\},}
+\DoxyCodeLine{00064\ \ \ \ \ \{CRIAR\_CANAL,\ 2\},}
+\DoxyCodeLine{00065\ \ \ \ \ \{ENTRAR\_CANAL,\ 1\},}
+\DoxyCodeLine{00066\ \ \ \ \ \{SAIR\_CANAL,\ 0\},}
+\DoxyCodeLine{00067\ \ \ \ \ \{ENVIAR\_MENSAGEM,\ 1\},}
+\DoxyCodeLine{00068\ \ \ \ \ \{LISTAR\_MENSAGENS,\ 0\}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \};}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \}\ \textcolor{comment}{//\ namespace\ cte}}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ !}}
+
+\end{DoxyCode}

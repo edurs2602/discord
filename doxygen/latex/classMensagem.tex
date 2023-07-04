@@ -1,0 +1,162 @@
+\doxysection{Mensagem Class Reference}
+\hypertarget{classMensagem}{}\label{classMensagem}\index{Mensagem@{Mensagem}}
+
+
+{\ttfamily \#include $<$mensagem.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMensagem_ae8d4413de4a085a5b93ee3bd1779abdf}{Mensagem}} ()
+\item 
+\mbox{\hyperlink{classMensagem_afbe8d1c03c61193100a9b7cf812ddf48}{\texorpdfstring{$\sim$}{\string~}\+Mensagem}} ()
+\item 
+\mbox{\hyperlink{classMensagem_a00ba120f6d755e2ad8d958bf39ad15e9}{Mensagem}} (std\+::string data\+Hora, int enviada\+Por, std\+::string conteudo)
+\item 
+void \mbox{\hyperlink{classMensagem_a295016d17dcb85c7a9ec0249e4fbd0c3}{set\+Enviado\+Por}} (int id)
+\item 
+void \mbox{\hyperlink{classMensagem_ac57206db81b34217b77d3249325de59b}{set\+Data\+Hora}} (std\+::string data\+Hora)
+\item 
+void \mbox{\hyperlink{classMensagem_ae8a86e2df0d2d8367234d094177a7e48}{set\+Conteudo}} (std\+::string conteudo)
+\item 
+int \mbox{\hyperlink{classMensagem_a280dd47b2f9add871e21fa7134ee07eb}{get\+Enviado\+Por}} () const
+\item 
+std\+::string \mbox{\hyperlink{classMensagem_af08ba6dbf82218951c84da19b53895cc}{get\+Data\+Hora}} () const
+\item 
+std\+::string \mbox{\hyperlink{classMensagem_a83b337b85e8241f9ba20f4e2f2ee81bd}{get\+Conteudo}} () const
+\item 
+bool \mbox{\hyperlink{classMensagem_a771980ed3cdcadea95be7ee81f47c300}{operator==}} (\mbox{\hyperlink{classMensagem}{Mensagem}} \&mensagem)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe que representa uma mensagem. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classMensagem_ae8d4413de4a085a5b93ee3bd1779abdf}\label{classMensagem_ae8d4413de4a085a5b93ee3bd1779abdf} 
+\index{Mensagem@{Mensagem}!Mensagem@{Mensagem}}
+\index{Mensagem@{Mensagem}!Mensagem@{Mensagem}}
+\doxysubsubsection{\texorpdfstring{Mensagem()}{Mensagem()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Mensagem\+::\+Mensagem (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Construtor padrão da classe \doxylink{classMensagem}{Mensagem}. \Hypertarget{classMensagem_afbe8d1c03c61193100a9b7cf812ddf48}\label{classMensagem_afbe8d1c03c61193100a9b7cf812ddf48} 
+\index{Mensagem@{Mensagem}!````~Mensagem@{\texorpdfstring{$\sim$}{\string~}Mensagem}}
+\index{````~Mensagem@{\texorpdfstring{$\sim$}{\string~}Mensagem}!Mensagem@{Mensagem}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Mensagem()}{\string~Mensagem()}}
+{\footnotesize\ttfamily Mensagem\+::\texorpdfstring{$\sim$}{\string~}\+Mensagem (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Destrutor da classe \doxylink{classMensagem}{Mensagem}. \Hypertarget{classMensagem_a00ba120f6d755e2ad8d958bf39ad15e9}\label{classMensagem_a00ba120f6d755e2ad8d958bf39ad15e9} 
+\index{Mensagem@{Mensagem}!Mensagem@{Mensagem}}
+\index{Mensagem@{Mensagem}!Mensagem@{Mensagem}}
+\doxysubsubsection{\texorpdfstring{Mensagem()}{Mensagem()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Mensagem\+::\+Mensagem (\begin{DoxyParamCaption}\item[{std\+::string}]{data\+Hora,  }\item[{int}]{enviada\+Por,  }\item[{std\+::string}]{conteudo }\end{DoxyParamCaption})}
+
+Construtor da classe \doxylink{classMensagem}{Mensagem} com parâmetros. 
+\begin{DoxyParams}{Parameters}
+{\em data\+Hora} & A data e hora da mensagem. \\
+\hline
+{\em enviada\+Por} & O ID do usuário que enviou a mensagem. \\
+\hline
+{\em conteudo} & O conteúdo da mensagem.\\
+\hline
+\end{DoxyParams}
+Construtor da classe \doxylink{classMensagem}{Mensagem} que recebe a data e hora, o remetente e o conteúdo da mensagem. 
+\begin{DoxyParams}{Parameters}
+{\em data\+Hora} & A data e hora da mensagem. \\
+\hline
+{\em enviada\+Por} & O ID do remetente da mensagem. \\
+\hline
+{\em conteudo} & O conteúdo da mensagem. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classMensagem_a83b337b85e8241f9ba20f4e2f2ee81bd}\label{classMensagem_a83b337b85e8241f9ba20f4e2f2ee81bd} 
+\index{Mensagem@{Mensagem}!getConteudo@{getConteudo}}
+\index{getConteudo@{getConteudo}!Mensagem@{Mensagem}}
+\doxysubsubsection{\texorpdfstring{getConteudo()}{getConteudo()}}
+{\footnotesize\ttfamily std\+::string Mensagem\+::get\+Conteudo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Obtém o conteúdo da mensagem. \begin{DoxyReturn}{Returns}
+O conteúdo da mensagem. 
+\end{DoxyReturn}
+\Hypertarget{classMensagem_af08ba6dbf82218951c84da19b53895cc}\label{classMensagem_af08ba6dbf82218951c84da19b53895cc} 
+\index{Mensagem@{Mensagem}!getDataHora@{getDataHora}}
+\index{getDataHora@{getDataHora}!Mensagem@{Mensagem}}
+\doxysubsubsection{\texorpdfstring{getDataHora()}{getDataHora()}}
+{\footnotesize\ttfamily std\+::string Mensagem\+::get\+Data\+Hora (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Obtém a data e hora da mensagem. \begin{DoxyReturn}{Returns}
+A data e hora da mensagem. 
+\end{DoxyReturn}
+\Hypertarget{classMensagem_a280dd47b2f9add871e21fa7134ee07eb}\label{classMensagem_a280dd47b2f9add871e21fa7134ee07eb} 
+\index{Mensagem@{Mensagem}!getEnviadoPor@{getEnviadoPor}}
+\index{getEnviadoPor@{getEnviadoPor}!Mensagem@{Mensagem}}
+\doxysubsubsection{\texorpdfstring{getEnviadoPor()}{getEnviadoPor()}}
+{\footnotesize\ttfamily int Mensagem\+::get\+Enviado\+Por (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Obtém o ID do usuário que enviou a mensagem. \begin{DoxyReturn}{Returns}
+O ID do usuário.
+\end{DoxyReturn}
+Obtém o ID do remetente da mensagem. \begin{DoxyReturn}{Returns}
+O ID do remetente. 
+\end{DoxyReturn}
+\Hypertarget{classMensagem_a771980ed3cdcadea95be7ee81f47c300}\label{classMensagem_a771980ed3cdcadea95be7ee81f47c300} 
+\index{Mensagem@{Mensagem}!operator==@{operator==}}
+\index{operator==@{operator==}!Mensagem@{Mensagem}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Mensagem\+::operator== (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMensagem}{Mensagem}} \&}]{mensagem }\end{DoxyParamCaption})}
+
+Sobrecarga do operador de igualdade. Verifica se duas mensagens são iguais. 
+\begin{DoxyParams}{Parameters}
+{\em mensagem} & A mensagem a ser comparada. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True se as mensagens são iguais, False caso contrário. 
+\end{DoxyReturn}
+\Hypertarget{classMensagem_ae8a86e2df0d2d8367234d094177a7e48}\label{classMensagem_ae8a86e2df0d2d8367234d094177a7e48} 
+\index{Mensagem@{Mensagem}!setConteudo@{setConteudo}}
+\index{setConteudo@{setConteudo}!Mensagem@{Mensagem}}
+\doxysubsubsection{\texorpdfstring{setConteudo()}{setConteudo()}}
+{\footnotesize\ttfamily void Mensagem\+::set\+Conteudo (\begin{DoxyParamCaption}\item[{std\+::string}]{conteudo }\end{DoxyParamCaption})}
+
+Define o conteúdo da mensagem. 
+\begin{DoxyParams}{Parameters}
+{\em conteudo} & O conteúdo da mensagem. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classMensagem_ac57206db81b34217b77d3249325de59b}\label{classMensagem_ac57206db81b34217b77d3249325de59b} 
+\index{Mensagem@{Mensagem}!setDataHora@{setDataHora}}
+\index{setDataHora@{setDataHora}!Mensagem@{Mensagem}}
+\doxysubsubsection{\texorpdfstring{setDataHora()}{setDataHora()}}
+{\footnotesize\ttfamily void Mensagem\+::set\+Data\+Hora (\begin{DoxyParamCaption}\item[{std\+::string}]{data\+Hora }\end{DoxyParamCaption})}
+
+Define a data e hora da mensagem. 
+\begin{DoxyParams}{Parameters}
+{\em data\+Hora} & A data e hora da mensagem. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classMensagem_a295016d17dcb85c7a9ec0249e4fbd0c3}\label{classMensagem_a295016d17dcb85c7a9ec0249e4fbd0c3} 
+\index{Mensagem@{Mensagem}!setEnviadoPor@{setEnviadoPor}}
+\index{setEnviadoPor@{setEnviadoPor}!Mensagem@{Mensagem}}
+\doxysubsubsection{\texorpdfstring{setEnviadoPor()}{setEnviadoPor()}}
+{\footnotesize\ttfamily void Mensagem\+::set\+Enviado\+Por (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
+
+Define o ID do usuário que enviou a mensagem. 
+\begin{DoxyParams}{Parameters}
+{\em id} & O ID do usuário.\\
+\hline
+\end{DoxyParams}
+Define o remetente da mensagem. 
+\begin{DoxyParams}{Parameters}
+{\em id} & O ID do remetente. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/mensagem.\+h\item 
+src/mensagem.\+cpp\end{DoxyCompactItemize}

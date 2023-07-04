@@ -1,0 +1,51 @@
+\doxysection{servidor.\+h}
+\hypertarget{servidor_8h_source}{}\label{servidor_8h_source}\index{include/servidor.h@{include/servidor.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ "{}canal.h"{}}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#ifndef\ SERVIDOR\_H}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ SERVIDOR\_H}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classServidor}{Servidor}}\ \{}
+\DoxyCodeLine{00015\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00016\ \ \ \textcolor{keywordtype}{int}\ idDono;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ ID\ do\ dono\ do\ servidor.}}
+\DoxyCodeLine{00017\ \ \ std::string\ nome;\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Nome\ do\ servidor.}}
+\DoxyCodeLine{00018\ \ \ std::string\ descricao;\ \ \ \ \ \textcolor{comment}{//\ Descrição\ do\ servidor.}}
+\DoxyCodeLine{00019\ \ \ std::string\ codigoConvite;\ \textcolor{comment}{//\ Código\ de\ convite\ do\ servidor.}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00025\ \ \ \mbox{\hyperlink{classServidor_a6be6f59fd470098d8d79bfa22c378b81}{Servidor}}();}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00030\ \ \ \mbox{\hyperlink{classServidor_a5ac1d9360e9c3010be4023f315cd64c1}{\string~Servidor}}();}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00038\ \ \ \mbox{\hyperlink{classServidor_a6be6f59fd470098d8d79bfa22c378b81}{Servidor}}(\textcolor{keywordtype}{int}\ idDono,\ std::string\ nome,\ std::string\ descricao);}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ std::vector<int>}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ participantesID;\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Vetor\ de\ IDs\ dos\ participantes\ do\ servidor.}}
+\DoxyCodeLine{00042\ \ \ std::vector<Canal\ *>\ canais;\ \textcolor{comment}{//\ Vetor\ de\ ponteiros\ para\ os\ canais\ do\ servidor.}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00048\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classServidor_a655bd4dc2936b5a5fb57d29765d28ebc}{setNome}}(std::string\ nome);}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00054\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classServidor_a4a232f83c626f7afcd98f1aeed5986f5}{setDescricao}}(std::string\ descricao);}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00060\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classServidor_ad5aa15ae0673fb5593b95d82fd53fc86}{setCodigo}}(std::string\ codigo);}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00066\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classServidor_a8ad4d39575f55bd28dc0d92f4a7e6bfa}{getDono}}();}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00072\ \ \ std::string\ \mbox{\hyperlink{classServidor_af094e7503c4fd8e124679f03eae3f0cd}{getNome}}();}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00078\ \ \ std::string\ \mbox{\hyperlink{classServidor_a2b6a810e74d7ae889e7fce1b75828a0b}{getDesc}}();}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00084\ \ \ std::string\ \mbox{\hyperlink{classServidor_a8c6d7d296be77a71f517c2b5036666b5}{getCodigo}}();}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00090\ \ \ std::vector<int>\ \mbox{\hyperlink{classServidor_a89c9bd8bb901a44a1f57e73a492bc029}{getParticipantesId}}();}
+\DoxyCodeLine{00091\ \};}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ !SERVIDOR\_H}}
+
+\end{DoxyCode}

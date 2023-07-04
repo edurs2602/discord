@@ -37,7 +37,7 @@ Para rodar o Concordo com o script de teste atualizado para a parte 2, utilize o
 ./Concordo < ../script-test.txt
 ```
 
-## 🛠 Technologies
+## Technologies
 
 - [C++](https://learn.microsoft.com/pt-br/cpp/cpp/?view=msvc-170)
 
@@ -72,7 +72,7 @@ Funcionalidades da Parte 2:
 
 ## Informações do Aluno
 
-<h3 align="center">🐺 Colaborador: <a href="https://github.com/edurs2602"><strong>@edurs2602</strong></a><br />Luis Eduardo - 20220028973</h3>
+<h3 align="center">Colaborador: <a href="https://github.com/edurs2602"><strong>@edurs2602</strong></a><br />Luis Eduardo - 20220028973</h3>
 <h4 align="center">:phone: <i>C O N T A T O S / C O N T A C T S</i> :phone:</h4>
 <div align="center">
     <a href = "mailto:edurs.2602@gmail.com"><img src="https://img.shields.io/badge/-Gmail-F80000?style=for-the-badge&logo=gmail&logoColor=white" target="_blank"></a>

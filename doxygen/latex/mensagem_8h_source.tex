@@ -1,0 +1,41 @@
+\doxysection{mensagem.\+h}
+\hypertarget{mensagem_8h_source}{}\label{mensagem_8h_source}\index{include/mensagem.h@{include/mensagem.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ MENSAGEM\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ MENSAGEM\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}usuario.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classMensagem}{Mensagem}}\ \{}
+\DoxyCodeLine{00012\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00013\ \ \ \textcolor{keywordtype}{int}\ enviadaPor;\ \ \ \ \ \ \ \textcolor{comment}{//\ ID\ do\ usuário\ que\ enviou\ a\ mensagem.}}
+\DoxyCodeLine{00014\ \ \ std::string\ dataHora;\ \textcolor{comment}{//\ Data\ e\ hora\ em\ que\ a\ mensagem\ foi\ enviada.}}
+\DoxyCodeLine{00015\ \ \ std::string\ conteudo;\ \textcolor{comment}{//\ Conteúdo\ da\ mensagem.}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00021\ \ \ \mbox{\hyperlink{classMensagem_ae8d4413de4a085a5b93ee3bd1779abdf}{Mensagem}}();}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00026\ \ \ \mbox{\hyperlink{classMensagem_afbe8d1c03c61193100a9b7cf812ddf48}{\string~Mensagem}}();}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00034\ \ \ \mbox{\hyperlink{classMensagem_ae8d4413de4a085a5b93ee3bd1779abdf}{Mensagem}}(std::string\ dataHora,\ \textcolor{keywordtype}{int}\ enviadaPor,\ std::string\ conteudo);}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00040\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMensagem_a295016d17dcb85c7a9ec0249e4fbd0c3}{setEnviadoPor}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00046\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMensagem_ac57206db81b34217b77d3249325de59b}{setDataHora}}(std::string\ dataHora);}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00052\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMensagem_ae8a86e2df0d2d8367234d094177a7e48}{setConteudo}}(std::string\ conteudo);}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00058\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classMensagem_a280dd47b2f9add871e21fa7134ee07eb}{getEnviadoPor}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00064\ \ \ std::string\ \mbox{\hyperlink{classMensagem_af08ba6dbf82218951c84da19b53895cc}{getDataHora}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00070\ \ \ std::string\ \mbox{\hyperlink{classMensagem_a83b337b85e8241f9ba20f4e2f2ee81bd}{getConteudo}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00078\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classMensagem_a771980ed3cdcadea95be7ee81f47c300}{operator==}}(\mbox{\hyperlink{classMensagem}{Mensagem}}\ \&mensagem);}
+\DoxyCodeLine{00079\ \};}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ !MENSAGEM\_H}}
+
+\end{DoxyCode}

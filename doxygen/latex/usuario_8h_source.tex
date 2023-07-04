@@ -1,0 +1,45 @@
+\doxysection{usuario.\+h}
+\hypertarget{usuario_8h_source}{}\label{usuario_8h_source}\index{include/usuario.h@{include/usuario.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ USUARIO\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ USUARIO\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classUsuario}{Usuario}}\ \{}
+\DoxyCodeLine{00011\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00012\ \ \ \textcolor{keywordtype}{int}\ id;\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ ID\ do\ usuário.}}
+\DoxyCodeLine{00013\ \ \ std::string\ nome;\ \ \textcolor{comment}{//\ Nome\ do\ usuário.}}
+\DoxyCodeLine{00014\ \ \ std::string\ email;\ \textcolor{comment}{//\ Email\ do\ usuário.}}
+\DoxyCodeLine{00015\ \ \ std::string\ senha;\ \textcolor{comment}{//\ Senha\ do\ usuário.}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00021\ \ \ \mbox{\hyperlink{classUsuario_aa85a5371a098dfba5449140d9b8a472f}{Usuario}}();}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00026\ \ \ \mbox{\hyperlink{classUsuario_ab4096b0b8300ecb47b10c555fb09c997}{\string~Usuario}}();}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00034\ \ \ \mbox{\hyperlink{classUsuario_aa85a5371a098dfba5449140d9b8a472f}{Usuario}}(std::string\ email,\ std::string\ senha,\ std::string\ nome);}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00040\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classUsuario_aeea289057d5550d495ef3f712376eab3}{setId}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00046\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classUsuario_ab6a6a430d055449a8e9d6c06253a272e}{setNome}}(std::string\ nome);}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00052\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classUsuario_aa46b53a37afb4aa3f7f6a5a1b3fe8528}{setEmail}}(std::string\ email);}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00058\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classUsuario_a28efaec1398906b6f43b12877bf59db7}{setSenha}}(std::string\ senha);}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00064\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classUsuario_a654c2014a73c6361cbcf40af60098229}{getId}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00070\ \ \ std::string\ \mbox{\hyperlink{classUsuario_a7ecc74b7950190ce12e3cd6cc551238b}{getNome}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00076\ \ \ std::string\ \mbox{\hyperlink{classUsuario_ab2539a1ac5c44f6d59271ed641243b56}{getEmail}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00082\ \ \ std::string\ \mbox{\hyperlink{classUsuario_a44527899a5f049f8072800b19435d106}{getSenha}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00089\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classUsuario_a2e66a51ce3f4f174f9ff5d38d3ac603c}{operator==}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classUsuario}{Usuario}}\ \&usuario)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00090\ \};}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ !USUARIO\_H}}
+
+\end{DoxyCode}

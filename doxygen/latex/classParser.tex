@@ -1,0 +1,121 @@
+\doxysection{Parser Class Reference}
+\hypertarget{classParser}{}\label{classParser}\index{Parser@{Parser}}
+
+
+{\ttfamily \#include $<$parser.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classParser_ab7ae823c47f6d3b2094c9c5cf285a8bd}{parse}} (std\+::string entrada)
+\item 
+void \mbox{\hyperlink{classParser_acd47193641081d8be4f05c9bb2581369}{print}} ()
+\item 
+std\+::string \mbox{\hyperlink{classParser_ada659f0b8d808a544b0f0a993f5c8514}{get\+Comando}} ()
+\item 
+std\+::string \mbox{\hyperlink{classParser_a8b3322a56268700844fbdde7becfaef6}{get\+Arg}} (int index)
+\item 
+std\+::string \mbox{\hyperlink{classParser_a53cdc1218510283c3dde72387d0470ee}{get\+Args\+Espace}} ()
+\item 
+int \mbox{\hyperlink{classParser_a3502ad3c1ce5ff4e27bbca5d6ca181c9}{qtd\+Args}} (std\+::string comando)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe responsável por realizar o parsing de comandos. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classParser_a8b3322a56268700844fbdde7becfaef6}\label{classParser_a8b3322a56268700844fbdde7becfaef6} 
+\index{Parser@{Parser}!getArg@{getArg}}
+\index{getArg@{getArg}!Parser@{Parser}}
+\doxysubsubsection{\texorpdfstring{getArg()}{getArg()}}
+{\footnotesize\ttfamily std\+::string Parser\+::get\+Arg (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+Obtém o argumento na posição especificada. 
+\begin{DoxyParams}{Parameters}
+{\em index} & O índice do argumento desejado. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+O argumento na posição especificada. 
+\end{DoxyReturn}
+\Hypertarget{classParser_a53cdc1218510283c3dde72387d0470ee}\label{classParser_a53cdc1218510283c3dde72387d0470ee} 
+\index{Parser@{Parser}!getArgsEspace@{getArgsEspace}}
+\index{getArgsEspace@{getArgsEspace}!Parser@{Parser}}
+\doxysubsubsection{\texorpdfstring{getArgsEspace()}{getArgsEspace()}}
+{\footnotesize\ttfamily std\+::string Parser\+::get\+Args\+Espace (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Obtém os argumentos concatenados separados por espaço. \begin{DoxyReturn}{Returns}
+Os argumentos concatenados separados por espaço.
+\end{DoxyReturn}
+Obtém os argumentos concatenados por espaços. \begin{DoxyReturn}{Returns}
+Os argumentos concatenados por espaços. 
+\end{DoxyReturn}
+\Hypertarget{classParser_ada659f0b8d808a544b0f0a993f5c8514}\label{classParser_ada659f0b8d808a544b0f0a993f5c8514} 
+\index{Parser@{Parser}!getComando@{getComando}}
+\index{getComando@{getComando}!Parser@{Parser}}
+\doxysubsubsection{\texorpdfstring{getComando()}{getComando()}}
+{\footnotesize\ttfamily std\+::string Parser\+::get\+Comando (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Obtém o comando extraído da entrada. \begin{DoxyReturn}{Returns}
+O comando extraído.
+\end{DoxyReturn}
+Obtém o comando extraído da análise da entrada. \begin{DoxyReturn}{Returns}
+O comando da entrada. 
+\end{DoxyReturn}
+\Hypertarget{classParser_ab7ae823c47f6d3b2094c9c5cf285a8bd}\label{classParser_ab7ae823c47f6d3b2094c9c5cf285a8bd} 
+\index{Parser@{Parser}!parse@{parse}}
+\index{parse@{parse}!Parser@{Parser}}
+\doxysubsubsection{\texorpdfstring{parse()}{parse()}}
+{\footnotesize\ttfamily bool Parser\+::parse (\begin{DoxyParamCaption}\item[{std\+::string}]{entrada }\end{DoxyParamCaption})}
+
+Realiza o parsing da entrada fornecida. 
+\begin{DoxyParams}{Parameters}
+{\em entrada} & A entrada a ser parseada. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True se o parsing foi bem-\/sucedido, False caso contrário.
+\end{DoxyReturn}
+Faz o parsing da entrada fornecida e armazena as informações relevantes. 
+\begin{DoxyParams}{Parameters}
+{\em entrada} & A entrada a ser analisada. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se a análise for bem-\/sucedida, false caso contrário. 
+\end{DoxyReturn}
+\Hypertarget{classParser_acd47193641081d8be4f05c9bb2581369}\label{classParser_acd47193641081d8be4f05c9bb2581369} 
+\index{Parser@{Parser}!print@{print}}
+\index{print@{print}!Parser@{Parser}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily void Parser\+::print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Imprime as informações do parser. \Hypertarget{classParser_a3502ad3c1ce5ff4e27bbca5d6ca181c9}\label{classParser_a3502ad3c1ce5ff4e27bbca5d6ca181c9} 
+\index{Parser@{Parser}!qtdArgs@{qtdArgs}}
+\index{qtdArgs@{qtdArgs}!Parser@{Parser}}
+\doxysubsubsection{\texorpdfstring{qtdArgs()}{qtdArgs()}}
+{\footnotesize\ttfamily int Parser\+::qtd\+Args (\begin{DoxyParamCaption}\item[{std\+::string}]{comando }\end{DoxyParamCaption})}
+
+Obtém a quantidade de argumentos para um determinado comando. 
+\begin{DoxyParams}{Parameters}
+{\em comando} & O comando desejado. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A quantidade de argumentos necessários para o comando.
+\end{DoxyReturn}
+Obtém a quantidade de argumentos necessários para um determinado comando. 
+\begin{DoxyParams}{Parameters}
+{\em comando} & O comando a ser verificado. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A quantidade de argumentos necessários para o comando. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/parser.\+h\item 
+src/parser.\+cpp\end{DoxyCompactItemize}

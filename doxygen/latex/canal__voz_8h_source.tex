@@ -1,0 +1,34 @@
+\doxysection{canal\+\_\+voz.\+h}
+\hypertarget{canal__voz_8h_source}{}\label{canal__voz_8h_source}\index{include/canal\_voz.h@{include/canal\_voz.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ CANAL\_VOZ\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ CANAL\_VOZ\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}canal.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}mensagem.h"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ Classe\ Canal\ Voz\ que\ herda\ de\ Canal}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ com\ um\ atributo\ privado\ de\ Mensagem\ chamado\ ultima}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ uma\ função\ construtora\ e\ destrutura}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ uma\ função\ que\ seta\ a\ ultima\ mensagem}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ e\ outra\ que\ retorna\ a\ ultima\ mensagem}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCanal__Voz}{Canal\_Voz}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classCanal}{Canal}}\ \{}
+\DoxyCodeLine{00016\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00017\ \ \ \mbox{\hyperlink{classMensagem}{Mensagem}}\ ultima;}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00020\ \ \ \mbox{\hyperlink{classCanal__Voz_ae322bc6c716e5b111ac72b53549f84ba}{Canal\_Voz}}();}
+\DoxyCodeLine{00021\ \ \ \mbox{\hyperlink{classCanal__Voz_a5c58b5d535eb6e309a9975a51c0f7608}{\string~Canal\_Voz}}();}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCanal__Voz_a0135855136a0cd234539b3691e9f59af}{setUltima}}(\mbox{\hyperlink{classMensagem}{Mensagem}}\ x);}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ std::string\ \mbox{\hyperlink{classCanal__Voz_a1bb43369e7217c887f9895cbd267cd87}{getUltima}}();}
+\DoxyCodeLine{00026\ \};}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
