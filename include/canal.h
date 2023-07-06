@@ -2,6 +2,7 @@
 #define CANAL_H
 
 #include <iostream>
+#include <vector>
 
 /*
  * Classe Canal

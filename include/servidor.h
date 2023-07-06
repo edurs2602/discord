@@ -88,6 +88,8 @@ public:
    * @return Um vetor contendo os IDs dos participantes.
    */
   std::vector<int> getParticipantesId();
+
+  std::vector<Canal *> getCanais();
 };
 
 #endif // !SERVIDOR_H

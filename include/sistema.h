@@ -18,6 +18,8 @@ private:
   int idUsuarioAtual;                 // ID do usuário atual.
   std::string nomeCanalAtual;         // Nome do canal atual.
   std::string nomerServidorAtual;     // Nome do servidor atual.
+  void downloadServidores();
+  void downloadUsuarios();
 
 public:
   /**
@@ -31,16 +33,10 @@ public:
   ~Sistema();
 
   /**
-   * Faz o download dos usuários.
-   * @return Um vetor de ponteiros para usuários.
-   */
-  std::vector<Usuario *> downloadUsuarios();
-
-  /**
-   * Faz o download dos servidores.
-   * @return Um vetor de ponteiros para servidores.
-   */
-  std::vector<Servidor *> downloadServidores();
+  * Chama as duas funções: downloadUsuarios e downloadServidores
+  */
+  void download();
+  
 
   static std::string
       getNomeServidorAtual;     // Getter para o nome do servidor atual.

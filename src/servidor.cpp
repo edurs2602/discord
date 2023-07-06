@@ -1,4 +1,5 @@
 #include "../include/servidor.h"
+#include <vector>
 
 /**
  * Construtor padrão da classe Servidor.
@@ -77,3 +78,5 @@ std::string Servidor::getDesc() { return descricao; }
  * @return O código de convite do servidor.
  */
 std::string Servidor::getCodigo() { return codigoConvite; }
+
+std::vector<Canal *> Servidor::getCanais() { return canais; }
