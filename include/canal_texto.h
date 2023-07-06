@@ -13,11 +13,17 @@
  * e uma função construtora e destrutura
  */
 class Canal_Texto : public Canal {
+private:
+  std::vector<Mensagem> mensagens;
+
 public:
   std::vector<Mensagem> texto;
 
   Canal_Texto();
   ~Canal_Texto();
+  Canal_Texto(std::string nome);
+
+  void adicionarMensagem(const Mensagem &mensagem);
 };
 
 #endif

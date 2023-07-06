@@ -22,3 +22,5 @@ void Canal_Voz::setUltima(Mensagem x) { ultima = x; }
  * @return O conteúdo da última mensagem.
  */
 std::string Canal_Voz::getUltima() { return ultima.getConteudo(); }
+
+Canal_Voz::Canal_Voz(std::string nome) : Canal(nome) {}

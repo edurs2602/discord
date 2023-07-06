@@ -1,0 +1,64 @@
+6
+1
+servidor-edu
+"servidor-edu servidor-edu servidor-edu"
+servidor-edu
+0
+0
+1
+servidor-csgo
+"servidor-csgo servidor-csgo servidor-csgo servidor-csgo"
+servidor-csgo
+1
+2
+0
+2
+servidor-bruno-gi
+
+servidor-bruno-gi
+0
+0
+2
+agata-testando
+
+
+0
+0
+3
+Servidor-canais
+
+
+2
+4
+3
+3
+canal-texto-1
+TEXTO
+5
+3
+<06/07/2023 - 16:39:40>
+ Ola pessoal eu sou o Edu
+3
+<06/07/2023 - 16:39:40>
+ Fiz esse servidor para conversar com vocês
+3
+<06/07/2023 - 16:39:40>
+ E jogarmos algumas coisas
+4
+<06/07/2023 - 16:39:40>
+ oi prazer, me chamo pablo
+4
+<06/07/2023 - 16:39:40>
+ queria jogar minecraft
+canal-texto-2
+TEXTO
+0
+canal-voz-1
+VOZ
+
+3
+Servidor2
+
+
+0
+0

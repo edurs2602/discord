@@ -59,6 +59,10 @@ public:
    */
   void setCodigo(std::string codigo);
 
+  void adicionarParticipante(int id);
+
+  void adicionarCanal(Canal *canal);
+
   /**
    * Obtém o ID do dono do servidor.
    * @return O ID do dono do servidor.
@@ -88,6 +92,8 @@ public:
    * @return Um vetor contendo os IDs dos participantes.
    */
   std::vector<int> getParticipantesId();
+
+  std::vector<Canal *> getCanais();
 };
 
 #endif // !SERVIDOR_H

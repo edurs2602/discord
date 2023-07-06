@@ -86,10 +86,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a08346c127b05cc90e47c2210c20dd4cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aafc86e0f2c3d734fb4c0985f70c27a1a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSistema.html#aafc86e0f2c3d734fb4c0985f70c27a1a">~Sistema</a> ()</td></tr>
 <tr class="separator:aafc86e0f2c3d734fb4c0985f70c27a1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a01937c7e23126c52241355f109ae35a4"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classUsuario.html">Usuario</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSistema.html#a01937c7e23126c52241355f109ae35a4">downloadUsuarios</a> ()</td></tr>
-<tr class="separator:a01937c7e23126c52241355f109ae35a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0018cdc30518e82ed8dfa348e3c7f308"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classServidor.html">Servidor</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSistema.html#a0018cdc30518e82ed8dfa348e3c7f308">downloadServidores</a> ()</td></tr>
-<tr class="separator:a0018cdc30518e82ed8dfa348e3c7f308"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8a7d87ef88b503020ca95f495d8ce14"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSistema.html#ab8a7d87ef88b503020ca95f495d8ce14">download</a> ()</td></tr>
+<tr class="separator:ab8a7d87ef88b503020ca95f495d8ce14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb714b0275f5d6c0523a8884639ddbce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSistema.html#afb714b0275f5d6c0523a8884639ddbce">upload</a> ()</td></tr>
+<tr class="separator:afb714b0275f5d6c0523a8884639ddbce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af60524f655b22cbb19efc1450c9ad57e"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSistema.html#af60524f655b22cbb19efc1450c9ad57e">timeMessage</a> ()</td></tr>
 <tr class="separator:af60524f655b22cbb19efc1450c9ad57e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af22d283a8614bbf317a40716b15a5b21"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSistema.html#af22d283a8614bbf317a40716b15a5b21">procurarEmail</a> (const std::string &amp;email)</td></tr>
@@ -342,43 +342,22 @@ static int&#160;</td><td class="memItemRight" valign="bottom"><b>getIdCanalAtual
 
 </div>
 </div>
-<a id="a0018cdc30518e82ed8dfa348e3c7f308" name="a0018cdc30518e82ed8dfa348e3c7f308"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0018cdc30518e82ed8dfa348e3c7f308">&#9670;&#160;</a></span>downloadServidores()</h2>
+<a id="ab8a7d87ef88b503020ca95f495d8ce14" name="ab8a7d87ef88b503020ca95f495d8ce14"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8a7d87ef88b503020ca95f495d8ce14">&#9670;&#160;</a></span>download()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt; <a class="el" href="classServidor.html">Servidor</a> * &gt; Sistema::downloadServidores </td>
+          <td class="memname">void Sistema::download </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Faz o download dos servidores. </p><dl class="section return"><dt>Returns</dt><dd>Um vetor de ponteiros para servidores.</dd></dl>
-<p>Retorna um vetor com todos os servidores do sistema.</p>
-<dl class="section return"><dt>Returns</dt><dd>um vetor com todos os servidores do sistema. </dd></dl>
-
-</div>
-</div>
-<a id="a01937c7e23126c52241355f109ae35a4" name="a01937c7e23126c52241355f109ae35a4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a01937c7e23126c52241355f109ae35a4">&#9670;&#160;</a></span>downloadUsuarios()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt; <a class="el" href="classUsuario.html">Usuario</a> * &gt; Sistema::downloadUsuarios </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Faz o download dos usuários. </p><dl class="section return"><dt>Returns</dt><dd>Um vetor de ponteiros para usuários.</dd></dl>
-<p>Retorna um vetor com todos os usuários do sistema.</p>
-<dl class="section return"><dt>Returns</dt><dd>um vetor com todos os usuários do sistema. </dd></dl>
+<p>Chama as duas funções: downloadUsuarios e downloadServidores.</p>
+<p>Método para realizar o download de usuários e servidores do sistema. </p>
 
 </div>
 </div>
@@ -914,6 +893,25 @@ static int&#160;</td><td class="memItemRight" valign="bottom"><b>getIdCanalAtual
 <p>Retorna uma string com a data e hora atuais no formato "&lt;dd/mm/yyyy -
 hh:mm:ss&gt;".</p>
 <dl class="section return"><dt>Returns</dt><dd>uma string com a data e hora atuais. </dd></dl>
+
+</div>
+</div>
+<a id="afb714b0275f5d6c0523a8884639ddbce" name="afb714b0275f5d6c0523a8884639ddbce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb714b0275f5d6c0523a8884639ddbce">&#9670;&#160;</a></span>upload()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Sistema::upload </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Chama as duas funções: uploadUsuarios e uploadServidores.</p>
+<p>Carrega os usuários e servidores do disco. Executa os métodos uploadUsuarios() e uploadServidores() para carregar os dados. </p>
 
 </div>
 </div>

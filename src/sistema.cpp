@@ -2,6 +2,7 @@
 #include <chrono>
 #include <cstdlib>
 #include <ctime>
+#include <fstream>
 #include <iomanip>
 #include <iostream>
 #include <iterator>
@@ -22,27 +23,259 @@
  * usuários.
  */
 Sistema::~Sistema() {
-  for (int i = 0; i < servidores.size(); i++)
-    delete servidores[i];
+  // Desaloca os usuarios
+  for (Usuario *usuario : usuarios) {
+    delete usuario;
+  }
 
-  for (int i = 0; i < usuarios.size(); i++)
-    delete usuarios[i];
+  // Desaloca os servidores
+  for (Servidor *servidor : servidores) {
+    delete servidor;
+  }
 }
 
 /**
- * Retorna um vetor com todos os usuários do sistema.
- *
- * @return um vetor com todos os usuários do sistema.
+ * Método para realizar o download dos usuários do sistema e salvar em um
+ * arquivo.
  */
-std::vector<Usuario *> Sistema::downloadUsuarios() { return this->usuarios; }
+void Sistema::downloadUsuarios() {
+  std::ofstream arquivo(
+      "../logs/usuarios.txt"); // Abre o arquivo no modo de escrita
+
+  if (arquivo.is_open()) {
+    arquivo << usuarios.size()
+            << "\n"; // Escrevendo o total de usuários no arquivo
+
+    for (Usuario *usuario : usuarios) {
+      arquivo << usuario->getId() << "\n";    // Escrevendo o ID do usuário
+      arquivo << usuario->getNome() << "\n";  // Escrevendo o nome do usuário
+      arquivo << usuario->getEmail() << "\n"; // Escrevendo o email do usuário
+      arquivo << usuario->getSenha() << "\n"; // Escrevendo a senha do usuário
+    }
+
+    arquivo.close(); // Fechando o arquivo
+  } else {
+    std::cout << "Erro ao abrir o arquivo\n";
+  }
+}
 
 /**
- * Retorna um vetor com todos os servidores do sistema.
- *
- * @return um vetor com todos os servidores do sistema.
+ * Método para realizar o download dos servidores do sistema e salvar em um
+ * arquivo.
  */
-std::vector<Servidor *> Sistema::downloadServidores() {
-  return this->servidores;
+void Sistema::downloadServidores() {
+  std::ofstream arquivo(
+      "../logs/servidores.txt"); // Abre o arquivo no modo de escrita
+
+  if (arquivo.is_open()) {
+    arquivo << servidores.size()
+            << "\n"; // Escrevendo o total de servidores no arquivo
+
+    for (Servidor *servidor : servidores) {
+      arquivo << servidor->getDono()
+              << "\n"; // Escrevendo o ID do dono do servidor
+      arquivo << servidor->getNome() << "\n"; // Escrevendo o nome do servidor
+      arquivo << servidor->getDesc()
+              << "\n"; // Escrevendo a descrição do servidor
+
+      if (servidor->getCodigo() == "") {
+        arquivo << "\n"; // Escrevendo uma linha vazia caso não haja código de
+                         // convite
+      } else {
+        arquivo << servidor->getCodigo()
+                << "\n"; // Escrevendo o código de convite do servidor
+      }
+
+      arquivo << servidor->getParticipantesId().size()
+              << "\n"; // Escrevendo o número de participantes do servidor
+
+      for (int participanteId : servidor->getParticipantesId()) {
+        arquivo << participanteId << "\n"; // Escrevendo o ID do participante
+      }
+
+      arquivo << servidor->getCanais().size()
+              << "\n"; // Escrevendo o número de canais do servidor
+
+      for (Canal *canal : servidor->getCanais()) {
+        arquivo << canal->getNome() << "\n"; // Escrevendo o nome do canal
+
+        bool isTexto = (canal->getNome().find("texto") != std::string::npos);
+        std::string tipoCanal = isTexto ? "TEXTO" : "VOZ";
+        arquivo << tipoCanal << "\n"; // Escrevendo o tipo do canal
+
+        Canal_Texto *txt = dynamic_cast<Canal_Texto *>(canal);
+        Canal_Voz *voz = dynamic_cast<Canal_Voz *>(canal);
+
+        if (tipoCanal == "TEXTO") {
+          arquivo << txt->texto.size()
+                  << "\n"; // Escrevendo o número de mensagens do canal de texto
+
+          for (auto im = txt->texto.begin(); im != txt->texto.end(); im++) {
+            arquivo << im->getEnviadoPor()
+                    << "\n"; // Escrevendo ID do remetente da mensagem
+            arquivo << im->getDataHora()
+                    << "\n"; // Escrevendo a data/hora da mensagem
+            arquivo << im->getConteudo()
+                    << "\n"; // Escrevendo o conteúdo da mensagem
+          }
+        } else if (tipoCanal == "VOZ") {
+          arquivo << voz->getUltima()
+                  << "\n"; // Escrevendo o conteúdo da última mensagem do canal
+                           // de voz
+        }
+      }
+    }
+
+    arquivo.close(); // Fechando o arquivo
+  } else {
+    std::cout << "Erro ao abrir o arquivo\n";
+  }
+}
+
+/**
+ * Método para realizar o download de usuários e servidores do sistema.
+ */
+void Sistema::download() {
+  downloadUsuarios();
+  downloadServidores();
+}
+
+/**
+ * Carrega os usuários a partir do arquivo "usuarios.txt".
+ * Os usuários são adicionados ao vetor de usuários do sistema.
+ */
+void Sistema::uploadUsuarios() {
+  std::fstream arquivo(
+      "../logs/usuarios.txt"); // Abre o arquivo no modo de leitura
+
+  if (arquivo.is_open()) {
+    int totalUsuarios;
+    arquivo >> totalUsuarios; // Lê o total de usuarios do arquivo
+
+    for (int i = 0; i < totalUsuarios; i++) {
+      int id;
+      std::string email, senha, nome;
+
+      arquivo >> id;
+      arquivo.ignore();
+      std::getline(arquivo, nome);  // Lê o nome do usuario
+      std::getline(arquivo, email); // Lê o email do usuario
+      std::getline(arquivo, senha); // Lê a senha do usuario
+
+      usuarios.push_back(new Usuario(
+          email, senha, nome)); // Adiciona os valores pegados a partir do
+                                // arquivo ao vetor usuarios
+    }
+
+    arquivo.close(); // Fecha o arquivo
+  } else {
+    std::cout << "Erro ao abrir arquivo\n";
+  }
+}
+
+/**
+ * Carrega os servidores a partir do arquivo "servidores.txt".
+ * Os servidores, participantes, canais e mensagens são adicionados ao sistema.
+ */
+void Sistema::uploadServidores() {
+  std::ifstream arquivo(
+      "../logs/servidores.txt"); // Abre o arquivo no modo de leitura
+
+  if (arquivo.is_open()) {
+    int totalServidores;
+    arquivo >> totalServidores; // Lê o total de servidores do arquivo
+
+    for (int i = 0; i < totalServidores; i++) {
+      int idDono, totalParticipantes, totalCanais;
+      std::string nome, descricao, codigoConvite;
+
+      arquivo >> idDono;                // Lê o ID do dono do servidor
+      arquivo.ignore();                 // Ignora o caractere de quebra de linha
+      std::getline(arquivo, nome);      // Lê o nome do servidor
+      std::getline(arquivo, descricao); // Lê a descrição do servidor
+      std::getline(arquivo,
+                   codigoConvite); // Lê o código de convite do servidor
+
+      // Cria um objeto Servidor com as informações lidas
+      Servidor *servidor = new Servidor(idDono, nome, descricao);
+
+      if (!codigoConvite.empty()) {
+        servidor->setCodigo(
+            codigoConvite); // Define o código de convite do servidor
+      }
+
+      arquivo >> totalParticipantes; // Lê o total de participantes do servidor
+
+      for (int j = 0; j < totalParticipantes; j++) {
+        int participanteId;
+        arquivo >> participanteId; // Lê o ID do participante
+        servidor->adicionarParticipante(
+            participanteId); // Adiciona o participante ao servidor
+      }
+
+      arquivo >> totalCanais; // Lê o total de canais do servidor
+
+      arquivo.ignore(); // Ignora o caractere de quebra de linha
+
+      for (int j = 0; j < totalCanais; j++) {
+        std::string nomeCanal, tipoCanal;
+        std::getline(arquivo, nomeCanal); // Lê o nome do canal
+        std::getline(arquivo, tipoCanal); // Lê o tipo do canal (TEXTO ou VOZ)
+
+        if (tipoCanal == "TEXTO") {
+          Canal_Texto *canalTexto = new Canal_Texto(nomeCanal);
+          servidor->adicionarCanal(canalTexto);
+
+          int totalMensagens;
+          arquivo >> totalMensagens; // Lê o total de mensagens do canal
+
+          arquivo.ignore(); // Ignora o caractere de quebra de linha
+
+          for (int k = 0; k < totalMensagens; k++) {
+            int enviadoPor;
+            std::string dataHora, conteudo;
+
+            arquivo >> enviadoPor; // Lê o ID do remetente da mensagem
+            arquivo.ignore();      // Ignora o caractere de quebra de linha
+            std::getline(arquivo, dataHora); // Lê a data/hora da mensagem
+            std::getline(arquivo, conteudo); // Lê o conteúdo da mensagem
+
+            Mensagem mensagem(dataHora, enviadoPor, conteudo);
+            canalTexto->adicionarMensagem(
+                mensagem); // Adiciona a mensagem ao canal de texto
+          }
+        } else if (tipoCanal == "VOZ") {
+          Canal_Voz *canalVoz = new Canal_Voz(nomeCanal);
+          servidor->adicionarCanal(canalVoz);
+
+          std::string ultimaMensagem;
+          std::getline(arquivo,
+                       ultimaMensagem); // Lê a última mensagem do canal de voz
+
+          Mensagem mensagem("", 0, ultimaMensagem);
+          canalVoz->setUltima(
+              mensagem); // Define a última mensagem do canal de voz
+        }
+      }
+
+      servidores.push_back(
+          servidor); // Adiciona o servidor ao vetor de servidores
+    }
+
+    arquivo.close(); // Fecha o arquivo
+  } else {
+    std::cout << "Erro ao abrir o arquivo de servidores\n";
+  }
+}
+
+/**
+ * Carrega os usuários e servidores do disco.
+ * Executa os métodos uploadUsuarios() e uploadServidores() para carregar os
+ * dados.
+ */
+void Sistema::upload() {
+  uploadUsuarios();
+  uploadServidores();
 }
 
 /**
@@ -144,6 +377,7 @@ bool Sistema::procurarCanal(const std::string &nome, const std::string &tipo) {
  */
 bool Sistema::quit() {
   std::cout << "Finalizando o Concordo..." << std::endl;
+  download();
   return true;
 }
 
@@ -170,6 +404,7 @@ bool Sistema::create_user(const std::string email, const std::string senha,
   }
 
   usuarios.push_back(new Usuario(email, senha, nome));
+  download();
 
   std::cout << "usuário criado com sucesso." << std::endl;
   return true;
@@ -256,6 +491,7 @@ void Sistema::create_server(const std::string nome) {
     if (procurarServidor(nome) == false) {
       Servidor *servidor = new Servidor(idUsuarioAtual, nome, desc);
       servidores.push_back(servidor);
+      download();
       nomerServidorAtual = nome;
       std::cout << "Servidor Criado" << std::endl;
     } else {
@@ -282,6 +518,7 @@ void Sistema::set_server_desc(const std::string nome, const std::string desc) {
           if (nome == (*is)->getNome()) {
             if (idUsuarioAtual == (*is)->getDono()) {
               (*is)->setDescricao('"' + desc + '"');
+              download();
               std::cout << "Descrição Atualizada" << std::endl;
             } else {
               std::cout << "Ação não permitida, você não é o dono do servidor"
@@ -317,6 +554,7 @@ void Sistema::set_server_invite_code(const std::string nome,
           if (nome == (*is)->getNome()) {
             if (idUsuarioAtual == (*is)->getDono()) {
               (*is)->setCodigo(codigo);
+              download();
               std::cout << "Codigo foi Atualizado" << std::endl;
             } else {
               std::cout << "Ação não permitida, você não é o dono do servidor"
@@ -388,6 +626,7 @@ void Sistema::remove_server(const std::string nome) {
             if (idUsuarioAtual == (*is)->getDono()) {
               delete *is;
               servidores.erase(is);
+              download();
               std::cout << "O Servidor '" + nome + "' foi removido"
                         << std::endl;
               return;
@@ -580,12 +819,14 @@ void Sistema::create_channel(const std::string nome, const std::string tipo) {
           canal = new Canal_Texto();
           canal->setNome(nome);
           (*it)->canais.push_back(canal);
+          download();
           nomeCanalAtual = nome;
           std::cout << "Canal " << nome << " de texto criado" << std::endl;
         } else if (tipo == "voz" || tipo == "Voz") {
           canal = new Canal_Voz();
           canal->setNome(nome);
           (*it)->canais.push_back(canal);
+          download();
           nomeCanalAtual = nome;
           std::cout << "Canal " << nome << " de voz criado" << std::endl;
         }
@@ -666,6 +907,7 @@ void Sistema::send_message(const std::string mensagem) {
         if (txt != nullptr) {
           Mensagem sms(timeMessage(), idUsuarioAtual, mensagem);
           txt->texto.push_back(sms);
+          download();
           std::cout << "Mensagem de texto enviada\n";
         }
       }
@@ -675,6 +917,7 @@ void Sistema::send_message(const std::string mensagem) {
         if (voz != nullptr) {
           Mensagem sms(timeMessage(), idUsuarioAtual, mensagem);
           voz->setUltima(sms);
+          download();
           std::cout << "Mensagem de voz enviada\n";
           std::cout << "Mensagem de voz: " << voz->getUltima() + "\n";
         }
@@ -746,6 +989,7 @@ void Sistema::list_messages() {
  * e pegar os comandos e argumentos passados pelo usuario.
  */
 void Sistema::iniciar() {
+  upload();
   Parser *par = new Parser();
 
   std::string comandoL, nome, email, senha, desc, codigo, tipo, msg, comandoP;

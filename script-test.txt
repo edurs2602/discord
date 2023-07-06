@@ -55,9 +55,8 @@ disconnect
 login edu@email senha
 enter-server Servidor-canais
 create-channel canal-texto-2 texto
-create-channel canal-voz-1 voz
-create-channel canal-voz-2 voz
 create-channel canal-texto-1 texto
+create-channel canal-voz-1 voz
 enter-channel canal-voz-2
 leave-channel
 enter-channel canal-voz-1

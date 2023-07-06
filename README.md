@@ -70,6 +70,13 @@ Funcionalidades da Parte 2:
 - Mandar alguma mensagem de texto
 - Listar as mensagens do Servidor
 
+Funcionalidades da Parte 3:
+
+- Salva os usuarios no arquivo: /logs/usuarios.txt
+- Salva os servidores no arquivo: /logs/servidores.txt
+- Pega as informações dos arquivos: /logs/usuarios.txt e /logs/servidores.txt
+  - E salva no sistema ao iniciar o Concordo
+
 ## Informações do Aluno
 
 <h3 align="center">Colaborador: <a href="https://github.com/edurs2602"><strong>@edurs2602</strong></a><br />Luis Eduardo - 20220028973</h3>

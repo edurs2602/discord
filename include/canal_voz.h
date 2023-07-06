@@ -19,6 +19,7 @@ private:
 public:
   Canal_Voz();
   ~Canal_Voz();
+  Canal_Voz(std::string nome);
 
   void setUltima(Mensagem x);
 

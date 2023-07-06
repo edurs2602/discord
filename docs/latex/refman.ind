@@ -1,0 +1,270 @@
+\begin{theindex}
+
+  \item {\texorpdfstring{$\sim$}{\string~}Canal}
+    \subitem {Canal}, \hyperpage{9}
+  \item {\texorpdfstring{$\sim$}{\string~}Canal\_Texto}
+    \subitem {Canal\_Texto}, \hyperpage{11}
+  \item {\texorpdfstring{$\sim$}{\string~}Canal\_Voz}
+    \subitem {Canal\_Voz}, \hyperpage{12}
+  \item {\texorpdfstring{$\sim$}{\string~}Mensagem}
+    \subitem {Mensagem}, \hyperpage{13}
+  \item {\texorpdfstring{$\sim$}{\string~}Servidor}
+    \subitem {Servidor}, \hyperpage{20}
+  \item {\texorpdfstring{$\sim$}{\string~}Sistema}
+    \subitem {Sistema}, \hyperpage{24}
+  \item {\texorpdfstring{$\sim$}{\string~}Usuario}
+    \subitem {Usuario}, \hyperpage{33}
+
+  \indexspace
+
+  \item {Canal}, \hyperpage{9}
+    \subitem {\texorpdfstring{$\sim$}{\string~}Canal}, \hyperpage{9}
+    \subitem {Canal}, \hyperpage{9}
+    \subitem {getNome}, \hyperpage{10}
+    \subitem {operator==}, \hyperpage{10}
+    \subitem {setNome}, \hyperpage{10}
+  \item {Canal\_Texto}, \hyperpage{11}
+    \subitem {\texorpdfstring{$\sim$}{\string~}Canal\_Texto}, 
+		\hyperpage{11}
+    \subitem {Canal\_Texto}, \hyperpage{11}
+  \item {Canal\_Voz}, \hyperpage{12}
+    \subitem {\texorpdfstring{$\sim$}{\string~}Canal\_Voz}, 
+		\hyperpage{12}
+    \subitem {Canal\_Voz}, \hyperpage{12}
+    \subitem {getUltima}, \hyperpage{12}
+    \subitem {setUltima}, \hyperpage{12}
+  \item {create\_channel}
+    \subitem {Sistema}, \hyperpage{25}
+  \item {create\_server}
+    \subitem {Sistema}, \hyperpage{25}
+  \item {create\_user}
+    \subitem {Sistema}, \hyperpage{25}
+
+  \indexspace
+
+  \item {disconnect}
+    \subitem {Sistema}, \hyperpage{26}
+  \item {download}
+    \subitem {Sistema}, \hyperpage{26}
+
+  \indexspace
+
+  \item {enter\_channel}
+    \subitem {Sistema}, \hyperpage{26}
+  \item {enter\_server}
+    \subitem {Sistema}, \hyperpage{27}
+
+  \indexspace
+
+  \item {getArg}
+    \subitem {Parser}, \hyperpage{17}
+  \item {getArgsEspace}
+    \subitem {Parser}, \hyperpage{18}
+  \item {getCodigo}
+    \subitem {Servidor}, \hyperpage{21}
+  \item {getComando}
+    \subitem {Parser}, \hyperpage{18}
+  \item {getConteudo}
+    \subitem {Mensagem}, \hyperpage{14}
+  \item {getDataHora}
+    \subitem {Mensagem}, \hyperpage{14}
+  \item {getDesc}
+    \subitem {Servidor}, \hyperpage{21}
+  \item {getDono}
+    \subitem {Servidor}, \hyperpage{21}
+  \item {getEmail}
+    \subitem {Usuario}, \hyperpage{34}
+  \item {getEnviadoPor}
+    \subitem {Mensagem}, \hyperpage{14}
+  \item {getId}
+    \subitem {Usuario}, \hyperpage{34}
+  \item {getNome}
+    \subitem {Canal}, \hyperpage{10}
+    \subitem {Servidor}, \hyperpage{22}
+    \subitem {Usuario}, \hyperpage{34}
+  \item {getParticipantesId}
+    \subitem {Servidor}, \hyperpage{22}
+  \item {getSenha}
+    \subitem {Usuario}, \hyperpage{34}
+  \item {getUltima}
+    \subitem {Canal\_Voz}, \hyperpage{12}
+
+  \indexspace
+
+  \item {include/canal.h}, \hyperpage{39}
+  \item {include/canal\_texto.h}, \hyperpage{39}
+  \item {include/canal\_voz.h}, \hyperpage{40}
+  \item {include/constantes.h}, \hyperpage{40}
+  \item {include/mensagem.h}, \hyperpage{41}
+  \item {include/parser.h}, \hyperpage{42}
+  \item {include/servidor.h}, \hyperpage{42}
+  \item {include/sistema.h}, \hyperpage{43}
+  \item {include/usuario.h}, \hyperpage{44}
+  \item {iniciar}
+    \subitem {Sistema}, \hyperpage{27}
+
+  \indexspace
+
+  \item {leave\_channel}
+    \subitem {Sistema}, \hyperpage{27}
+  \item {leave\_server}
+    \subitem {Sistema}, \hyperpage{27}
+  \item {list\_channels}
+    \subitem {Sistema}, \hyperpage{28}
+  \item {list\_messages}
+    \subitem {Sistema}, \hyperpage{28}
+  \item {list\_participants}
+    \subitem {Sistema}, \hyperpage{28}
+  \item {list\_servers}
+    \subitem {Sistema}, \hyperpage{28}
+  \item {login}
+    \subitem {Sistema}, \hyperpage{28}
+
+  \indexspace
+
+  \item {Mensagem}, \hyperpage{13}
+    \subitem {\texorpdfstring{$\sim$}{\string~}Mensagem}, 
+		\hyperpage{13}
+    \subitem {getConteudo}, \hyperpage{14}
+    \subitem {getDataHora}, \hyperpage{14}
+    \subitem {getEnviadoPor}, \hyperpage{14}
+    \subitem {Mensagem}, \hyperpage{13, 14}
+    \subitem {operator==}, \hyperpage{15}
+    \subitem {setConteudo}, \hyperpage{15}
+    \subitem {setDataHora}, \hyperpage{15}
+    \subitem {setEnviadoPor}, \hyperpage{17}
+
+  \indexspace
+
+  \item {operator==}
+    \subitem {Canal}, \hyperpage{10}
+    \subitem {Mensagem}, \hyperpage{15}
+    \subitem {Usuario}, \hyperpage{35}
+
+  \indexspace
+
+  \item {parse}
+    \subitem {Parser}, \hyperpage{18}
+  \item {Parser}, \hyperpage{17}
+    \subitem {getArg}, \hyperpage{17}
+    \subitem {getArgsEspace}, \hyperpage{18}
+    \subitem {getComando}, \hyperpage{18}
+    \subitem {parse}, \hyperpage{18}
+    \subitem {print}, \hyperpage{19}
+    \subitem {qtdArgs}, \hyperpage{19}
+  \item {print}
+    \subitem {Parser}, \hyperpage{19}
+  \item {procurarCanal}
+    \subitem {Sistema}, \hyperpage{29}
+  \item {procurarEmail}
+    \subitem {Sistema}, \hyperpage{29}
+  \item {procurarServidor}
+    \subitem {Sistema}, \hyperpage{30}
+
+  \indexspace
+
+  \item {qtdArgs}
+    \subitem {Parser}, \hyperpage{19}
+  \item {quit}
+    \subitem {Sistema}, \hyperpage{30}
+
+  \indexspace
+
+  \item {README}, \hyperpage{2}
+  \item {remove\_server}
+    \subitem {Sistema}, \hyperpage{31}
+
+  \indexspace
+
+  \item {send\_message}
+    \subitem {Sistema}, \hyperpage{31}
+  \item {Servidor}, \hyperpage{20}
+    \subitem {\texorpdfstring{$\sim$}{\string~}Servidor}, 
+		\hyperpage{20}
+    \subitem {getCodigo}, \hyperpage{21}
+    \subitem {getDesc}, \hyperpage{21}
+    \subitem {getDono}, \hyperpage{21}
+    \subitem {getNome}, \hyperpage{22}
+    \subitem {getParticipantesId}, \hyperpage{22}
+    \subitem {Servidor}, \hyperpage{20, 21}
+    \subitem {setCodigo}, \hyperpage{22}
+    \subitem {setDescricao}, \hyperpage{23}
+    \subitem {setNome}, \hyperpage{23}
+  \item {set\_server\_desc}
+    \subitem {Sistema}, \hyperpage{31}
+  \item {set\_server\_invite\_code}
+    \subitem {Sistema}, \hyperpage{32}
+  \item {setCodigo}
+    \subitem {Servidor}, \hyperpage{22}
+  \item {setConteudo}
+    \subitem {Mensagem}, \hyperpage{15}
+  \item {setDataHora}
+    \subitem {Mensagem}, \hyperpage{15}
+  \item {setDescricao}
+    \subitem {Servidor}, \hyperpage{23}
+  \item {setEmail}
+    \subitem {Usuario}, \hyperpage{35}
+  \item {setEnviadoPor}
+    \subitem {Mensagem}, \hyperpage{17}
+  \item {setId}
+    \subitem {Usuario}, \hyperpage{36}
+  \item {setNome}
+    \subitem {Canal}, \hyperpage{10}
+    \subitem {Servidor}, \hyperpage{23}
+    \subitem {Usuario}, \hyperpage{36}
+  \item {setSenha}
+    \subitem {Usuario}, \hyperpage{36}
+  \item {setUltima}
+    \subitem {Canal\_Voz}, \hyperpage{12}
+  \item {Sistema}, \hyperpage{24}
+    \subitem {\texorpdfstring{$\sim$}{\string~}Sistema}, \hyperpage{24}
+    \subitem {create\_channel}, \hyperpage{25}
+    \subitem {create\_server}, \hyperpage{25}
+    \subitem {create\_user}, \hyperpage{25}
+    \subitem {disconnect}, \hyperpage{26}
+    \subitem {download}, \hyperpage{26}
+    \subitem {enter\_channel}, \hyperpage{26}
+    \subitem {enter\_server}, \hyperpage{27}
+    \subitem {iniciar}, \hyperpage{27}
+    \subitem {leave\_channel}, \hyperpage{27}
+    \subitem {leave\_server}, \hyperpage{27}
+    \subitem {list\_channels}, \hyperpage{28}
+    \subitem {list\_messages}, \hyperpage{28}
+    \subitem {list\_participants}, \hyperpage{28}
+    \subitem {list\_servers}, \hyperpage{28}
+    \subitem {login}, \hyperpage{28}
+    \subitem {procurarCanal}, \hyperpage{29}
+    \subitem {procurarEmail}, \hyperpage{29}
+    \subitem {procurarServidor}, \hyperpage{30}
+    \subitem {quit}, \hyperpage{30}
+    \subitem {remove\_server}, \hyperpage{31}
+    \subitem {send\_message}, \hyperpage{31}
+    \subitem {set\_server\_desc}, \hyperpage{31}
+    \subitem {set\_server\_invite\_code}, \hyperpage{32}
+    \subitem {Sistema}, \hyperpage{24}
+    \subitem {timeMessage}, \hyperpage{32}
+    \subitem {upload}, \hyperpage{32}
+
+  \indexspace
+
+  \item {timeMessage}
+    \subitem {Sistema}, \hyperpage{32}
+
+  \indexspace
+
+  \item {upload}
+    \subitem {Sistema}, \hyperpage{32}
+  \item {Usuario}, \hyperpage{33}
+    \subitem {\texorpdfstring{$\sim$}{\string~}Usuario}, \hyperpage{33}
+    \subitem {getEmail}, \hyperpage{34}
+    \subitem {getId}, \hyperpage{34}
+    \subitem {getNome}, \hyperpage{34}
+    \subitem {getSenha}, \hyperpage{34}
+    \subitem {operator==}, \hyperpage{35}
+    \subitem {setEmail}, \hyperpage{35}
+    \subitem {setId}, \hyperpage{36}
+    \subitem {setNome}, \hyperpage{36}
+    \subitem {setSenha}, \hyperpage{36}
+    \subitem {Usuario}, \hyperpage{33}
+
+\end{theindex}

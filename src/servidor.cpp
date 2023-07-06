@@ -1,4 +1,5 @@
 #include "../include/servidor.h"
+#include <vector>
 
 /**
  * Construtor padrão da classe Servidor.
@@ -48,6 +49,10 @@ void Servidor::setDescricao(std::string descricao) {
  */
 void Servidor::setCodigo(std::string codigo) { this->codigoConvite = codigo; }
 
+void Servidor::adicionarParticipante(int id) { participantesID.push_back(id); }
+
+void Servidor::adicionarCanal(Canal *canal) { canais.push_back(canal); }
+
 /**
  * Obtém o ID do dono do servidor.
  * @return O ID do dono do servidor.
@@ -77,3 +82,5 @@ std::string Servidor::getDesc() { return descricao; }
  * @return O código de convite do servidor.
  */
 std::string Servidor::getCodigo() { return codigoConvite; }
+
+std::vector<Canal *> Servidor::getCanais() { return canais; }
