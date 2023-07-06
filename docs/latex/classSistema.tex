@@ -11,9 +11,9 @@
 \item 
 \mbox{\hyperlink{classSistema_aafc86e0f2c3d734fb4c0985f70c27a1a}{\texorpdfstring{$\sim$}{\string~}\+Sistema}} ()
 \item 
-std\+::vector$<$ \mbox{\hyperlink{classUsuario}{Usuario}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{classSistema_a01937c7e23126c52241355f109ae35a4}{download\+Usuarios}} ()
+void \mbox{\hyperlink{classSistema_ab8a7d87ef88b503020ca95f495d8ce14}{download}} ()
 \item 
-std\+::vector$<$ \mbox{\hyperlink{classServidor}{Servidor}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{classSistema_a0018cdc30518e82ed8dfa348e3c7f308}{download\+Servidores}} ()
+void \mbox{\hyperlink{classSistema_afb714b0275f5d6c0523a8884639ddbce}{upload}} ()
 \item 
 std\+::string \mbox{\hyperlink{classSistema_af60524f655b22cbb19efc1450c9ad57e}{time\+Message}} ()
 \item 
@@ -172,35 +172,15 @@ true se o usuário foi criado com sucesso, false caso contrário.
 \doxysubsubsection{\texorpdfstring{disconnect()}{disconnect()}}
 {\footnotesize\ttfamily void Sistema\+::disconnect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Desconecta o usuário atual. \Hypertarget{classSistema_a0018cdc30518e82ed8dfa348e3c7f308}\label{classSistema_a0018cdc30518e82ed8dfa348e3c7f308} 
-\index{Sistema@{Sistema}!downloadServidores@{downloadServidores}}
-\index{downloadServidores@{downloadServidores}!Sistema@{Sistema}}
-\doxysubsubsection{\texorpdfstring{downloadServidores()}{downloadServidores()}}
-{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classServidor}{Servidor}} \texorpdfstring{$\ast$}{*} $>$ Sistema\+::download\+Servidores (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+Desconecta o usuário atual. \Hypertarget{classSistema_ab8a7d87ef88b503020ca95f495d8ce14}\label{classSistema_ab8a7d87ef88b503020ca95f495d8ce14} 
+\index{Sistema@{Sistema}!download@{download}}
+\index{download@{download}!Sistema@{Sistema}}
+\doxysubsubsection{\texorpdfstring{download()}{download()}}
+{\footnotesize\ttfamily void Sistema\+::download (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Faz o download dos servidores. \begin{DoxyReturn}{Returns}
-Um vetor de ponteiros para servidores.
-\end{DoxyReturn}
-Retorna um vetor com todos os servidores do sistema.
+Chama as duas funções\+: download\+Usuarios e download\+Servidores.
 
-\begin{DoxyReturn}{Returns}
-um vetor com todos os servidores do sistema. 
-\end{DoxyReturn}
-\Hypertarget{classSistema_a01937c7e23126c52241355f109ae35a4}\label{classSistema_a01937c7e23126c52241355f109ae35a4} 
-\index{Sistema@{Sistema}!downloadUsuarios@{downloadUsuarios}}
-\index{downloadUsuarios@{downloadUsuarios}!Sistema@{Sistema}}
-\doxysubsubsection{\texorpdfstring{downloadUsuarios()}{downloadUsuarios()}}
-{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classUsuario}{Usuario}} \texorpdfstring{$\ast$}{*} $>$ Sistema\+::download\+Usuarios (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-Faz o download dos usuários. \begin{DoxyReturn}{Returns}
-Um vetor de ponteiros para usuários.
-\end{DoxyReturn}
-Retorna um vetor com todos os usuários do sistema.
-
-\begin{DoxyReturn}{Returns}
-um vetor com todos os usuários do sistema. 
-\end{DoxyReturn}
-\Hypertarget{classSistema_ac262c8ac3e464cf005edd07872d8db6e}\label{classSistema_ac262c8ac3e464cf005edd07872d8db6e} 
+Método para realizar o download de usuários e servidores do sistema. \Hypertarget{classSistema_ac262c8ac3e464cf005edd07872d8db6e}\label{classSistema_ac262c8ac3e464cf005edd07872d8db6e} 
 \index{Sistema@{Sistema}!enter\_channel@{enter\_channel}}
 \index{enter\_channel@{enter\_channel}!Sistema@{Sistema}}
 \doxysubsubsection{\texorpdfstring{enter\_channel()}{enter\_channel()}}
@@ -484,7 +464,15 @@ Retorna uma string com a data e hora atuais no formato \"{}$<$dd/mm/yyyy -\/ hh\
 \begin{DoxyReturn}{Returns}
 uma string com a data e hora atuais. 
 \end{DoxyReturn}
+\Hypertarget{classSistema_afb714b0275f5d6c0523a8884639ddbce}\label{classSistema_afb714b0275f5d6c0523a8884639ddbce} 
+\index{Sistema@{Sistema}!upload@{upload}}
+\index{upload@{upload}!Sistema@{Sistema}}
+\doxysubsubsection{\texorpdfstring{upload()}{upload()}}
+{\footnotesize\ttfamily void Sistema\+::upload (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+Chama as duas funções\+: upload\+Usuarios e upload\+Servidores.
+
+Carrega os usuários e servidores do disco. Executa os métodos upload\+Usuarios() e upload\+Servidores() para carregar os dados. 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

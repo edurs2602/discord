@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.7.4)  4 JUL 2023 13:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.7.4)  6 JUL 2023 14:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -948,20 +948,20 @@ Package pdftex.def Info: classCanal__Texto.pdf  used on input line 6.
 (pdftex.def)             Requested size: 64.01309pt x 56.9055pt.
  [10])
 (./classCanal__Voz.tex <./classCanal__Voz.pdf>
-<classCanal__Voz.pdf, id=823, 501.875pt x 489.62924pt>
+<classCanal__Voz.pdf, id=824, 501.875pt x 489.62924pt>
 File: classCanal__Voz.pdf Graphic file (type pdf)
 <use classCanal__Voz.pdf>
 Package pdftex.def Info: classCanal__Voz.pdf  used on input line 6.
 (pdftex.def)             Requested size: 58.32321pt x 56.9055pt.
  [11]
-Underfull \hbox (badness 10000) detected at line 59
+Underfull \hbox (badness 10000) detected at line 62
 [][][]
  []
 
-[12] [13]) (./classMensagem.tex
+[12]) (./classMensagem.tex
 LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <7> not available
 (Font)              Font shape `T1/pcr/m/sl' tried instead on input line 52.
- [14]
+ [13]
 Underfull \hbox (badness 10000) detected at line 81
 [][][]
  []
@@ -971,7 +971,7 @@ Underfull \hbox (badness 10000) detected at line 90
 [][][]
  []
 
-
+[14]
 Underfull \hbox (badness 10000) detected at line 99
 [][][]
  []
@@ -981,17 +981,17 @@ Underfull \hbox (badness 10000) detected at line 102
 [][][]
  []
 
-[15] [16]
+
 Underfull \hbox (badness 10000) detected at line 116
 [][][]
  []
 
-[17]) (./classParser.tex
+[15] [16]) (./classParser.tex [17]
 Underfull \hbox (badness 10000) detected at line 39
 [][][]
  []
 
-[18]
+
 Underfull \hbox (badness 10000) detected at line 48
 [][][]
  []
@@ -1011,12 +1011,12 @@ Underfull \hbox (badness 10000) detected at line 63
 [][][]
  []
 
-
+[18]
 Underfull \hbox (badness 10000) detected at line 77
 [][][]
  []
 
-[19]
+
 Underfull \hbox (badness 10000) detected at line 85
 [][][]
  []
@@ -1026,17 +1026,12 @@ Underfull \hbox (badness 10000) detected at line 105
 [][][]
  []
 
-
+[19]
 Underfull \hbox (badness 10000) detected at line 113
 [][][]
  []
 
-) (./classServidor.tex [20] [21]
-Underfull \hbox (badness 10000) detected at line 94
-[][][]
- []
-
-
+) (./classServidor.tex [20]
 Underfull \hbox (badness 10000) detected at line 103
 [][][]
  []
@@ -1046,102 +1041,87 @@ Underfull \hbox (badness 10000) detected at line 112
 [][][]
  []
 
-
+[21]
 Underfull \hbox (badness 10000) detected at line 121
 [][][]
  []
 
-[22]
+
 Underfull \hbox (badness 10000) detected at line 130
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 133
+Underfull \hbox (badness 10000) detected at line 139
 [][][]
  []
 
-[23]) (./classSistema.tex [24] [25]
+
+Underfull \hbox (badness 10000) detected at line 142
+[][][]
+ []
+
+[22]) (./classSistema.tex [23] [24] [25]
 Underfull \hbox (badness 10000) detected at line 152
 [][][]
  []
 
-[26] [27]
+
 Underfull \hbox (badness 10000) detected at line 166
 [][][]
  []
 
-
-Underfull \hbox (badness 10000) detected at line 181
+[26] [27] [28]
+Underfull \hbox (badness 10000) detected at line 310
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 186
+Underfull \hbox (badness 10000) detected at line 322
+[][][]
+ []
+
+[29]
+Underfull \hbox (badness 10000) detected at line 336
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 195
+Underfull \hbox (badness 10000) detected at line 346
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 200
-[][][]
- []
-
-[28] [29] [30]
-Underfull \hbox (badness 10000) detected at line 330
+Underfull \hbox (badness 10000) detected at line 360
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 342
+Underfull \hbox (badness 10000) detected at line 370
+[][][]
+ []
+
+[30]
+Underfull \hbox (badness 10000) detected at line 379
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 384
 [][][]
  []
 
 [31]
-Underfull \hbox (badness 10000) detected at line 356
+Underfull \hbox (badness 10000) detected at line 459
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 366
+Underfull \hbox (badness 10000) detected at line 464
 [][][]
  []
 
-
-Underfull \hbox (badness 10000) detected at line 380
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 390
-[][][]
- []
-
-[32]
-Underfull \hbox (badness 10000) detected at line 399
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 404
-[][][]
- []
-
-[33]
-Underfull \hbox (badness 10000) detected at line 479
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 484
-[][][]
- []
-
-) (./classUsuario.tex [34] [35]
+) (./classUsuario.tex [32] [33]
 Underfull \hbox (badness 10000) detected at line 85
 [][][]
  []
@@ -1161,7 +1141,7 @@ Underfull \hbox (badness 10000) detected at line 112
 [][][]
  []
 
-[36]
+[34]
 Underfull \hbox (badness 10000) detected at line 126
 [][][]
  []
@@ -1171,32 +1151,32 @@ Underfull \hbox (badness 10000) detected at line 134
 [][][]
  []
 
-[37] [38]) [39] [40
+[35] [36]) [37] [38
 
 ]
 Chapter 6.
-(./canal_8h_source.tex) (./canal__texto_8h_source.tex)
-(./canal__voz_8h_source.tex [41]) (./constantes_8h_source.tex [42])
-(./mensagem_8h_source.tex) (./parser_8h_source.tex [43])
-(./servidor_8h_source.tex) (./sistema_8h_source.tex [44])
-(./usuario_8h_source.tex [45]) [46] (./refman.ind
+(./canal_8h_source.tex) (./canal__texto_8h_source.tex [39])
+(./canal__voz_8h_source.tex) (./constantes_8h_source.tex [40])
+(./mensagem_8h_source.tex) (./parser_8h_source.tex [41])
+(./servidor_8h_source.tex) (./sistema_8h_source.tex [42] [43])
+(./usuario_8h_source.tex) [44] (./refman.ind
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 (Font)              scaled to size 22.39185pt on input line 1.
- [47
+ [45
 
 
 
-] [48] [49
+] [46] [47
 
 ]) (./refman.aux)
 Package rerunfilecheck Info: File `refman.out' has not changed.
-(rerunfilecheck)             Checksum: DA3F15F7C74B9802A82AAEEE45DBC461;23343.
+(rerunfilecheck)             Checksum: FB3FD3B4C3C40AD4B8A40FF6698D797C;23243.
  ) 
 Here is how much of TeX's memory you used:
- 18719 strings out of 477985
- 305181 string characters out of 5840059
+ 18729 strings out of 477985
+ 305763 string characters out of 5840059
  1871388 words of memory out of 5000000
- 38187 multiletter control sequences out of 15000+600000
+ 38193 multiletter control sequences out of 15000+600000
  572552 words of font info for 113 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  101i,16n,117p,2265b,740s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1211,10 +1191,10 @@ a.pfb></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvb8ac.pfb></usr/share/t
 exmf-dist/fonts/type1/urw/helvetic/uhvbo8a.pfb></usr/share/texmf-dist/fonts/typ
 e1/urw/helvetic/uhvr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvr
 o8a.pfb>
-Output written on refman.pdf (55 pages, 234376 bytes).
+Output written on refman.pdf (53 pages, 234012 bytes).
 PDF statistics:
- 1650 PDF objects out of 1728 (max. 8388607)
- 1541 compressed objects within 16 object streams
- 355 named destinations out of 1000 (max. 500000)
+ 1652 PDF objects out of 1728 (max. 8388607)
+ 1545 compressed objects within 16 object streams
+ 359 named destinations out of 1000 (max. 500000)
  1008 words of extra memory for PDF output out of 10000 (max. 10000000)
 
