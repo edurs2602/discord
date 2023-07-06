@@ -37,6 +37,18 @@ Para rodar o Concordo com o script de teste atualizado para a parte 2, utilize o
 ./Concordo < ../script-test.txt
 ```
 
+Para rodar o script de teste do valgrin, siga os seguintes passos:
+
+```bash
+chmod +x valgrind-test.sh
+```
+
+Após dar permissão para o arquivo, digite na raiz do projeto:
+
+```bash
+./valgrind-test.sh
+```
+
 ## Technologies
 
 - [C++](https://learn.microsoft.com/pt-br/cpp/cpp/?view=msvc-170)

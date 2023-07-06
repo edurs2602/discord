@@ -34,22 +34,7 @@ Servidor-canais
 3
 canal-texto-1
 TEXTO
-5
-3
-<06/07/2023 - 16:39:40>
- Ola pessoal eu sou o Edu
-3
-<06/07/2023 - 16:39:40>
- Fiz esse servidor para conversar com vocês
-3
-<06/07/2023 - 16:39:40>
- E jogarmos algumas coisas
-4
-<06/07/2023 - 16:39:40>
- oi prazer, me chamo pablo
-4
-<06/07/2023 - 16:39:40>
- queria jogar minecraft
+0
 canal-texto-2
 TEXTO
 0
