@@ -112,7 +112,7 @@ void Sistema::downloadServidores() {
 
           for (auto im = txt->texto.begin(); im != txt->texto.end(); im++) {
             arquivo << im->getEnviadoPor()
-                    << "\n"; // Escrevendoo ID do remetente da mensagem
+                    << "\n"; // Escrevendo ID do remetente da mensagem
             arquivo << im->getDataHora()
                     << "\n"; // Escrevendo a data/hora da mensagem
             arquivo << im->getConteudo()
@@ -138,6 +138,144 @@ void Sistema::downloadServidores() {
 void Sistema::download() {
   downloadUsuarios();
   downloadServidores();
+}
+
+/**
+ * Carrega os usuários a partir do arquivo "usuarios.txt".
+ * Os usuários são adicionados ao vetor de usuários do sistema.
+ */
+void Sistema::uploadUsuarios() {
+  std::fstream arquivo(
+      "../logs/usuarios.txt"); // Abre o arquivo no modo de leitura
+
+  if (arquivo.is_open()) {
+    int totalUsuarios;
+    arquivo >> totalUsuarios; // Lê o total de usuarios do arquivo
+
+    for (int i = 0; i < totalUsuarios; i++) {
+      int id;
+      std::string email, senha, nome;
+
+      arquivo >> id;
+      arquivo.ignore();
+      std::getline(arquivo, nome);  // Lê o nome do usuario
+      std::getline(arquivo, email); // Lê o email do usuario
+      std::getline(arquivo, senha); // Lê a senha do usuario
+
+      usuarios.push_back(new Usuario(
+          email, senha, nome)); // Adiciona os valores pegados a partir do
+                                // arquivo ao vetor usuarios
+    }
+
+    arquivo.close(); // Fecha o arquivo
+  } else {
+    std::cout << "Erro ao abrir arquivo\n";
+  }
+}
+
+/**
+ * Carrega os servidores a partir do arquivo "servidores.txt".
+ * Os servidores, participantes, canais e mensagens são adicionados ao sistema.
+ */
+void Sistema::uploadServidores() {
+  std::ifstream arquivo(
+      "../logs/servidores.txt"); // Abre o arquivo no modo de leitura
+
+  if (arquivo.is_open()) {
+    int totalServidores;
+    arquivo >> totalServidores; // Lê o total de servidores do arquivo
+
+    for (int i = 0; i < totalServidores; i++) {
+      int idDono, totalParticipantes, totalCanais;
+      std::string nome, descricao, codigoConvite;
+
+      arquivo >> idDono;                // Lê o ID do dono do servidor
+      arquivo.ignore();                 // Ignora o caractere de quebra de linha
+      std::getline(arquivo, nome);      // Lê o nome do servidor
+      std::getline(arquivo, descricao); // Lê a descrição do servidor
+      std::getline(arquivo,
+                   codigoConvite); // Lê o código de convite do servidor
+
+      // Cria um objeto Servidor com as informações lidas
+      Servidor *servidor = new Servidor(idDono, nome, descricao);
+
+      if (!codigoConvite.empty()) {
+        servidor->setCodigo(
+            codigoConvite); // Define o código de convite do servidor
+      }
+
+      arquivo >> totalParticipantes; // Lê o total de participantes do servidor
+
+      for (int j = 0; j < totalParticipantes; j++) {
+        int participanteId;
+        arquivo >> participanteId; // Lê o ID do participante
+        servidor->adicionarParticipante(
+            participanteId); // Adiciona o participante ao servidor
+      }
+
+      arquivo >> totalCanais; // Lê o total de canais do servidor
+
+      arquivo.ignore(); // Ignora o caractere de quebra de linha
+
+      for (int j = 0; j < totalCanais; j++) {
+        std::string nomeCanal, tipoCanal;
+        std::getline(arquivo, nomeCanal); // Lê o nome do canal
+        std::getline(arquivo, tipoCanal); // Lê o tipo do canal (TEXTO ou VOZ)
+
+        if (tipoCanal == "TEXTO") {
+          Canal_Texto *canalTexto = new Canal_Texto(nomeCanal);
+          servidor->adicionarCanal(canalTexto);
+
+          int totalMensagens;
+          arquivo >> totalMensagens; // Lê o total de mensagens do canal
+
+          arquivo.ignore(); // Ignora o caractere de quebra de linha
+
+          for (int k = 0; k < totalMensagens; k++) {
+            int enviadoPor;
+            std::string dataHora, conteudo;
+
+            arquivo >> enviadoPor; // Lê o ID do remetente da mensagem
+            arquivo.ignore();      // Ignora o caractere de quebra de linha
+            std::getline(arquivo, dataHora); // Lê a data/hora da mensagem
+            std::getline(arquivo, conteudo); // Lê o conteúdo da mensagem
+
+            Mensagem mensagem(dataHora, enviadoPor, conteudo);
+            canalTexto->adicionarMensagem(
+                mensagem); // Adiciona a mensagem ao canal de texto
+          }
+        } else if (tipoCanal == "VOZ") {
+          Canal_Voz *canalVoz = new Canal_Voz(nomeCanal);
+          servidor->adicionarCanal(canalVoz);
+
+          std::string ultimaMensagem;
+          std::getline(arquivo,
+                       ultimaMensagem); // Lê a última mensagem do canal de voz
+
+          Mensagem mensagem("", 0, ultimaMensagem);
+          canalVoz->setUltima(
+              mensagem); // Define a última mensagem do canal de voz
+        }
+      }
+
+      servidores.push_back(
+          servidor); // Adiciona o servidor ao vetor de servidores
+    }
+
+    arquivo.close(); // Fecha o arquivo
+  } else {
+    std::cout << "Erro ao abrir o arquivo de servidores\n";
+  }
+}
+
+/**
+ * Carrega os usuários e servidores do disco.
+ * Executa os métodos uploadUsuarios() e uploadServidores() para carregar os
+ * dados.
+ */
+void Sistema::upload() {
+  uploadUsuarios();
+  uploadServidores();
 }
 
 /**
@@ -851,6 +989,7 @@ void Sistema::list_messages() {
  * e pegar os comandos e argumentos passados pelo usuario.
  */
 void Sistema::iniciar() {
+  upload();
   Parser *par = new Parser();
 
   std::string comandoL, nome, email, senha, desc, codigo, tipo, msg, comandoP;

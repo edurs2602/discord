@@ -59,6 +59,10 @@ public:
    */
   void setCodigo(std::string codigo);
 
+  void adicionarParticipante(int id);
+
+  void adicionarCanal(Canal *canal);
+
   /**
    * Obtém o ID do dono do servidor.
    * @return O ID do dono do servidor.

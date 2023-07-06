@@ -18,8 +18,10 @@ private:
   int idUsuarioAtual;                 // ID do usuário atual.
   std::string nomeCanalAtual;         // Nome do canal atual.
   std::string nomerServidorAtual;     // Nome do servidor atual.
-  void downloadServidores();
-  void downloadUsuarios();
+  void downloadServidores(); // Metodo para salvar servidores em um arquivo txt.
+  void downloadUsuarios();   // Metodo para salvar usuarios em um arquivo txt.
+  void uploadServidores(); // Metodo para carregar servidores de um arquivo txt.
+  void uploadUsuarios();   // Metodo para carregar usuarios de um arquivo txt.
 
 public:
   /**
@@ -33,10 +35,14 @@ public:
   ~Sistema();
 
   /**
-  * Chama as duas funções: downloadUsuarios e downloadServidores
-  */
+   * Chama as duas funções: downloadUsuarios e downloadServidores.
+   */
   void download();
-  
+
+  /**
+   * Chama as duas funções: uploadUsuarios e uploadServidores.
+   */
+  void upload();
 
   static std::string
       getNomeServidorAtual;     // Getter para o nome do servidor atual.
